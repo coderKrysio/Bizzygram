@@ -17,3 +17,57 @@ const ProfileForm = () => {
 }
 
 export default ProfileForm
+
+// import { AccountAPI, TypeValue } from '@/lib/accountapi'
+
+// const ProfileForm = ({profileDetails , setProfileDetails, setProfileForm}: any) => {
+//     function handleChange(e: any) {
+//         const {name, value} = e.target
+//         setProfileDetails((prev: any) => ({
+//             ...prev,
+//             [name]: value,
+//         }))
+//     }
+
+//     const handleNextBtn = () => {
+//         setProfileForm(false)
+//         AccountAPI.addingNewProfile(profileDetails)
+//     }
+
+//     return (
+//         <div>
+//             {TypeValue == "Individual" ? <>
+//                 <input 
+//                     type='text' 
+//                     placeholder='profession'
+//                     name='profession'
+//                     onChange={handleChange}
+//                 />
+//                 <input 
+//                     type='text' 
+//                     placeholder='organisation'
+//                     name='organisation'
+//                     onChange={handleChange}
+//                 /> 
+//             </> :
+//             <input 
+//                 type='text' 
+//                 placeholder='firmType'
+//                 name='firmType'
+//                 onChange={handleChange}
+//             />}
+//             <input 
+//                 type='text' 
+//                 placeholder='contactNo'
+//                 name='contactNo'
+//                 onChange={handleChange}
+//             />
+//             <button
+//             onClick={handleNextBtn}
+//             >next</button>
+//             <br /> <br />
+//         </div>
+//     )
+// }
+
+// export default ProfileForm
