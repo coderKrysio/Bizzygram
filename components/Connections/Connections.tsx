@@ -18,7 +18,7 @@ const Connections = () => {
             </div>
 
             <div
-            className="grid grid-cols-2 gap-y-[25px] items-center p-5 w-full h-full overflow-scroll overflow-x-hidden max-[950px]:flex max-[950px]:flex-col max-[950px]:p-0 max-[950px]:items-center max-[950px]:items-center max-[400px]:gap-y-[10px]"
+            className="grid grid-cols-2 gap-y-[25px] items-center p-5 w-full h-full overflow-scroll overflow-x-hidden max-[950px]:flex max-[950px]:flex-col max-[950px]:p-0 max-[950px]:items-center max-[400px]:gap-y-[10px]"
             >
                 <ConnectionCard />
                 <ConnectionCard />
