@@ -1,4 +1,5 @@
 "use client";
+import Navbar from '@/components/Navigation/Navbar';
 import Scanner from '@/components/Navigation/Scanner';
 import ProfileForm from '@/components/ProfileForm/ProfileForm';
 import SocialsInfo from '@/components/ProfileForm/SocialInfo';
@@ -72,36 +73,21 @@ const Profile = () => {
     },[profileUser])
 
     return (
-        <div>
+        <div className='flex w-screen h-screen overflow-hidden'>
+            <Navbar />
+            <div className='flex flex-col h-screen w-full pt-[60px]'>
             {user &&            
-                profileUser == 0 ? 
-                    <>
-                        {profileForm ? <ProfileForm profileDetails={profileDetails} setProfileDetails={setProfileDetails} setProfileForm={setProfileForm} />
-                        : <SocialsInfo setSocialsData={setSocialsData} />}
-                    </>
-                    : 
-                    <div>
-                        <p>Profile</p>
-                        <br />
-
-                        <div>
-                            user initials
-                            <img 
-                            src={profilePhoto}
-                            />
-
-                            <img 
-                            width={"250px"}
-                            src={QRCode}
-                            />
-                        </div>
-                        
-                        <button onClick={handleLogOut}>
-                            Logout
-                        </button>
-                    </div>
-            }   
-            {/* <div>
+            //     profileUser == 0 ? 
+            //         <>
+            //             {profileForm ? <ProfileForm profileDetails={profileDetails} setProfileDetails={setProfileDetails} setProfileForm={setProfileForm} />
+            //             : <SocialsInfo setSocialsData={setSocialsData} />}
+            //         </>
+            //         : 
+            //         <div>
+            //             <p>Profile</p>
+            //         </div>
+            // }   
+            /* <div>
                 <p>Profile</p>
                 <br />
 
@@ -120,7 +106,9 @@ const Profile = () => {
                 <button onClick={handleLogOut}>
                     Logout
                 </button>
-            </div>      */}
+            </div>      */
+            <ProfileForm profileDetails={profileDetails} setProfileDetails={setProfileDetails} setProfileForm={setProfileForm} />}
+            </div>
         </div>
     )
 }
