@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    ::-webkit-scrollbar-track{
+    @apply bg-transparent shadow-sm w-1
+    }
+    ::-webkit-scrollbar{
+    @apply w-1 bg-transparent
+    }
+    ::-webkit-scrollbar-thumb{
+    @apply rounded-lg bg-[#bae8e8] hover:bg-[#272343] /*color trackbar*/
+    }
+    html {
+      -webkit-tap-highlight-color: transparent;
+    }
+}
