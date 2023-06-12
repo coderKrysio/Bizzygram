@@ -94,7 +94,7 @@ const SocialsInfo = ({setSocialsData}: any) => {
             </div>
 
             <button
-            className='text-xl w-fit font-semibold tracking-wide border-2 border-[#272343] m-7 px-7 py-2 rounded-xl hover:bg-[#ffd803] hover:border-[#ffd803] max-[1180px]:relative'
+            className='text-xl w-fit font-semibold tracking-wide border-2 border-[#272343] m-4 px-7 py-2 rounded-xl hover:bg-[#ffd803] hover:border-[#ffd803] max-[1180px]:relative'
             onClick={handleNextBtn}
             >Done</button>
         </div>

@@ -6,20 +6,22 @@ const ProfileForm = ({profileDetails, setProfileDetails, setProfileForm}: any) =
     const [openSocials, setOpenSocials] = useState(false);
 
     return (
-        <div className="grid grid-rows-[331px_auto] border-2 border-black gap-[10px] p-5 h-screen bg-yellow-300">
+        <div className="grid justify-center items-center gap-[10px] p-5 h-screen">
 
-            <div className="border-2 border-black flex flex-col bg-red-300 h-[331px]">
+            <div className="flex flex-col justify-center items-center h-[80px]">
                 <h1
-                className="text-3xl font-semibold tracking-wide mt-9"
+                className="text-3xl font-semibold tracking-wide"
                 >Setting your Profile</h1>
 
                 <p
-                className="mb-4"
+                className="mb-4 text-center"
                 >Kindly enter your information to complete your profile setup.</p>
             </div>
 
-            {!openSocials ? <CardInfo setOpenSocials={setOpenSocials} /> :
-            <SocialsInfo />}
+            <div
+            className="flex h-[500px] items-start overflow-scroll justify-center"
+            >{!openSocials ? <CardInfo setOpenSocials={setOpenSocials} /> :
+            <SocialsInfo />}</div>
         </div>
     )
 }
