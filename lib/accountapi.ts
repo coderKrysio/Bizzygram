@@ -20,6 +20,8 @@ const avatars = new Avatars(client);
 export const Client_Account = account;
 export const TypeValue = localStorage.getItem("typeValue") || ""
 export const UserId = localStorage.getItem("userId") || ""
+// export const TypeValue = "Individual"
+// export const UserId = ""
 
 export const AccountAPI = {
     getAccount: async () => {
@@ -47,7 +49,7 @@ export const AccountAPI = {
     },
 
     createUserDocument: async(params: any) => {
-        return await database.createDocument("6474815c11bbebd3ea92", "6474817b8ac4aa4f62f6", ID.unique(), {
+        return await database.createDocument(DATABASE_ID, USER_COLLECTION_ID, ID.unique(), {
             name: params.name,
             userId: params.$id,
             email: params.email,
@@ -61,7 +63,7 @@ export const AccountAPI = {
     },
 
     getUserDocument: async(params: any) => {
-        return await database.listDocuments("6474815c11bbebd3ea92", "6474817b8ac4aa4f62f6",
+        return await database.listDocuments(DATABASE_ID, USER_COLLECTION_ID,
             [
                 Query.equal("userId", [params.$id]),
             ]
