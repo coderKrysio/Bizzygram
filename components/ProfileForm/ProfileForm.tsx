@@ -1,73 +1,27 @@
+import { useState } from "react"
 import CardInfo from "./CardInfo"
+import SocialsInfo from "./SocialInfo"
 
-const ProfileForm = () => {
-  return (
-    <div className="flex flex-col gap-[10px] p-5 h-screen">
-        <h1
-        className="text-3xl font-semibold tracking-wide mt-9"
-        >Setting your Profile</h1>
+const ProfileForm = ({profileDetails, setProfileDetails, setProfileForm}: any) => {
+    const [openSocials, setOpenSocials] = useState(false);
 
-        <p
-        className="mb-4"
-        >Kindly enter your information to complete your profile setup.</p>
+    return (
+        <div className="grid grid-rows-[331px_auto] border-2 border-black gap-[10px] p-5 h-screen bg-yellow-300">
 
-        <CardInfo />
-    </div>
-  )
+            <div className="border-2 border-black flex flex-col bg-red-300 h-[331px]">
+                <h1
+                className="text-3xl font-semibold tracking-wide mt-9"
+                >Setting your Profile</h1>
+
+                <p
+                className="mb-4"
+                >Kindly enter your information to complete your profile setup.</p>
+            </div>
+
+            {!openSocials ? <CardInfo setOpenSocials={setOpenSocials} /> :
+            <SocialsInfo />}
+        </div>
+    )
 }
 
 export default ProfileForm
-
-// import { AccountAPI, TypeValue } from '@/lib/accountapi'
-
-// const ProfileForm = ({profileDetails , setProfileDetails, setProfileForm}: any) => {
-//     function handleChange(e: any) {
-//         const {name, value} = e.target
-//         setProfileDetails((prev: any) => ({
-//             ...prev,
-//             [name]: value,
-//         }))
-//     }
-
-//     const handleNextBtn = () => {
-//         setProfileForm(false)
-//         AccountAPI.addingNewProfile(profileDetails)
-//     }
-
-//     return (
-//         <div>
-//             {TypeValue == "Individual" ? <>
-//                 <input 
-//                     type='text' 
-//                     placeholder='profession'
-//                     name='profession'
-//                     onChange={handleChange}
-//                 />
-//                 <input 
-//                     type='text' 
-//                     placeholder='organisation'
-//                     name='organisation'
-//                     onChange={handleChange}
-//                 /> 
-//             </> :
-//             <input 
-//                 type='text' 
-//                 placeholder='firmType'
-//                 name='firmType'
-//                 onChange={handleChange}
-//             />}
-//             <input 
-//                 type='text' 
-//                 placeholder='contactNo'
-//                 name='contactNo'
-//                 onChange={handleChange}
-//             />
-//             <button
-//             onClick={handleNextBtn}
-//             >next</button>
-//             <br /> <br />
-//         </div>
-//     )
-// }
-
-// export default ProfileForm

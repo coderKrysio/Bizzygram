@@ -1,4 +1,5 @@
 "use client";
+import Scanner from '@/components/Navigation/Scanner';
 import ProfileForm from '@/components/ProfileForm/ProfileForm';
 import SocialsInfo from '@/components/ProfileForm/SocialInfo';
 import { AccountAPI, Client_Account, TypeValue } from '@/lib/accountapi';
@@ -99,7 +100,27 @@ const Profile = () => {
                             Logout
                         </button>
                     </div>
-            }        
+            }   
+            {/* <div>
+                <p>Profile</p>
+                <br />
+
+                <div>
+                    user initials
+                    <img 
+                    src={profilePhoto}
+                    />
+
+                    <img 
+                    width={"250px"}
+                    src={QRCode}
+                    />
+                </div>
+                <Scanner />
+                <button onClick={handleLogOut}>
+                    Logout
+                </button>
+            </div>      */}
         </div>
     )
 }

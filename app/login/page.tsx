@@ -24,7 +24,7 @@ export default function Login() {
     }
 
     const handleGoogleSignUp = () => {
-        AccountAPI.googleLogIn()
+        AccountAPI.googleLogIn();
     } 
 
     const getAccount =  (response: any) => {
@@ -36,11 +36,12 @@ export default function Login() {
                 userId: res.documents[0].userId,
                 type: res.documents[0].type,
             }))
-        })
+        }).catch((err) => console.log(err))
     }
 
     useEffect(() => {
         getSession();
+        console.log(details.userId)
     }, [Client_Account])  
 
     return (
