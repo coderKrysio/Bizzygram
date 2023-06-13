@@ -115,6 +115,14 @@ export const AccountAPI = {
         }).catch((err: any) => console.log(err))
     },
 
+    fetchingProfile: async () => {
+        return await database.listDocuments(DATABASE_ID, PROFILE_COLLECTION_ID,
+            [
+                Query.equal("userId", [UserId]),
+            ]
+        )
+    },
+
     userInitials: async() => {
         return avatars.getInitials().href
     },
