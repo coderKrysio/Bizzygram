@@ -87,7 +87,7 @@ export const AccountAPI = {
 
     addingNewProfile: async (res:any) => {
         return await database.createDocument(DATABASE_ID, PROFILE_COLLECTION_ID, ID.unique(), {
-            userId: res.userId,
+            userId: UserId,
             type: TypeValue,
             profession: res.profession,
             organisation: res.organisation,
