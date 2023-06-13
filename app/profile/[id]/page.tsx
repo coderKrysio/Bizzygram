@@ -1,6 +1,5 @@
 "use client";
 import Navbar from '@/components/Navigation/Navbar';
-import Scanner from '@/components/Navigation/Scanner';
 import ProfileForm from '@/components/ProfileForm/ProfileForm';
 import SocialsInfo from '@/components/ProfileForm/SocialInfo';
 import UserProfile from '@/components/UserProfile';
@@ -38,11 +37,6 @@ const Profile = () => {
             AccountAPI.gettingTypeValue()
         })
         .catch((err) => console.log(err));     
-    }
-
-    const handleLogOut = async () => {
-        AccountAPI.deleteSession()
-        router.push('/login');
     }
 
     useEffect(() => {
