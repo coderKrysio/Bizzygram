@@ -44,7 +44,7 @@ const UserType = ({details, setDetails, setUserType, setShowUserType}: any) => {
     return (
         <div className="flex flex-col p-5 w-fit h-[472px] max-[675px]:h-fit mt-[30px] mb-[60px]">
             <h3
-            className="text-3xl font-semibold mb-5 pl-4"
+            className="text-center text-3xl font-semibold mb-5 pl-4"
             >Select user type</h3>
 
             <div
