@@ -1,6 +1,17 @@
+import { useState } from "react";
+import { QrReader } from "react-qr-reader";
+
 const ScannerModal = ({setScannerModal}: any) => {
+    const [result, setResult] = useState("No result");
+
+    let handleScan = (data: any) => {
+        if (data) {
+          setResult(data);
+        }
+    };
+
     return (
-        <div className="fixed w-full h-full mt-[60px] pb-[60px] z-20 bg-black bg-opacity-[0.25] flex justify-center items-center">
+        <div className="fixed w-full h-full mt-[60px] pb-[60px] z-30 bg-black bg-opacity-[0.25] flex justify-center items-center">
             <div
             className="relative w-fit h-fit p-8 bg-white flex flex-col justify-center items-center rounded-[16px]"
             >
@@ -18,7 +29,13 @@ const ScannerModal = ({setScannerModal}: any) => {
 
                 <div
                 className="h-[325px] w-[325px] bg-[#ffd803] rounded-[8px] max-[470px]:w-[275px] max-[470px]:h-[275px]"
-                ></div>
+                >
+                    <QrReader
+                    onResult={handleScan}
+                    constraints={{ facingMode: "environment" }}
+                    />
+                    <p>{result}</p>
+                </div>
             </div>
         </div>
     )
