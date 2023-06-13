@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation'
 
 const ProfilePanel = () => {
     const router = useRouter()
-
+    const [profilePhoto, setProfilePhoto] = useState();
     const [userDetails, setUserDetails] = useState({
         name: "",
         email: "",
@@ -28,6 +28,9 @@ const ProfilePanel = () => {
     }
 
     useEffect(()=>{
+        AccountAPI.userInitials()
+        .then((res: any) => setProfilePhoto(res))
+
         AccountAPI.getUserInformation()
         .then((res: any) => {
             if(res.total==0) router.push('/signup')
@@ -66,7 +69,7 @@ const ProfilePanel = () => {
                 <div
                 className='flex flex-col gap-[35px] overflow-scroll overflow-x-hidden'
                 >
-                    <ProfilePhoto />
+                    <ProfilePhoto profilePhoto={profilePhoto} userDetails={userDetails} />
                     <UserInformation userDetails={userDetails} />
                     <CardInformation cardInfo={cardInfo} setCardInfo={setCardInfo} />
                     <SocialInformation cardInfo={cardInfo} />
@@ -81,8 +84,10 @@ const ProfilePanel = () => {
                 className='w-[250px] flex flex-col items-center p-8 max-[1180px]:absolute max-[1180px]:right-0 max-[1180px]:mr-[40px] max-[1180px]:bg-[#f3fbfb] max-[1070px]:hidden'
                 >
                     <div
-                    className='w-[200px] h-[200px] rounded-[100px] bg-[#ffd803]'
-                    ></div>
+                    className='w-[200px] h-[200px] rounded-[100px] bg-[#fff] overflow-hidden'
+                    ><img 
+                        src={profilePhoto}
+                    /></div>
 
                     <button
                     className='absolute bottom-0 mb-7 text-xl w-fit font-semibold tracking-wide border-2 border-[#272343] m-5 px-7 py-2 rounded-xl hover:bg-[#ffd803] hover:border-[#ffd803] max-[1180px]:relative'
