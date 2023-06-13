@@ -1,3 +1,6 @@
+import { AccountAPI } from "@/lib/accountapi"
+import { useRouter } from "next/navigation"
+
 const Setting = ({
     setShowConnections,
     setShowProfile,
@@ -9,6 +12,7 @@ const Setting = ({
     setProfileModal
 }: any) => {
     const btnStyle = 'text-2xl text-left py-3 font-medium'
+    const router = useRouter()
 
     const updatePanel = (arg: string) => {
         setShowConnections(false)
@@ -25,6 +29,12 @@ const Setting = ({
             setShowHelp(true)     
         }
     }
+
+    const handleLogOut = async () => {
+        AccountAPI.deleteSession()
+        router.push('/login');
+    }
+
     return (
         <div
         className='relative flex flex-col gap-[25px] h-screen w-full pt-[85px] p-7 ml-3 max-[1070px]:pb-[70px] max-[470px]:ml-0'
@@ -52,6 +62,7 @@ const Setting = ({
 
                 <button
                 className={btnStyle}
+                onClick={handleLogOut}
                 >-&nbsp;&nbsp;Log Out</button>
 
                 <button

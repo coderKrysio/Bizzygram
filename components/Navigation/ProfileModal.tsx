@@ -1,5 +1,9 @@
+import { AccountAPI } from "@/lib/accountapi";
+import { useRouter } from "next/navigation"
+
 const ProfileModal = ({setShowProfile, setShowConnections, setShowUserCard, setShowSetting}: any) => {
     const btnStyle = 'border-b-2 border-slate-300 p-2 text-lg font-medium tracking-wide hover:font-semibold';
+    const router = useRouter()
 
     const updatePanel = (arg: any) => {
         if(arg == "Profile") {
@@ -18,6 +22,11 @@ const ProfileModal = ({setShowProfile, setShowConnections, setShowUserCard, setS
             setShowConnections(false)
             setShowSetting(true)     
         }
+    }
+
+    const handleLogOut = async () => {
+        AccountAPI.deleteSession()
+        router.push('/login');
     }
 
     return (
@@ -41,6 +50,7 @@ const ProfileModal = ({setShowProfile, setShowConnections, setShowUserCard, setS
 
             <button
             className='p-2 text-lg font-medium tracking-wide hover:font-semibold'
+            onClick={handleLogOut}
             >Log Out</button>
         </div>
     )
