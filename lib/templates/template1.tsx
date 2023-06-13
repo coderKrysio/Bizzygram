@@ -1,7 +1,6 @@
 import Link from "next/link"
 
-const Template1 = ({scale, userDetails, cardInfo, socials}: any) => {
-    console.log(socials)
+const Template1 = ({scale, userDetails, cardInfo}: any) => {
     return (
         <div
         className={`relative w-full h-full p-5 flex flex-col rounded-[16px] justify-center items-center backdrop-blur-lg bg-gradient-to-br from-[#ffffff66] to-[#ffffff33] ${scale}`}

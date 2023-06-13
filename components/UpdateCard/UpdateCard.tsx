@@ -1,7 +1,51 @@
+import { AccountAPI } from "@/lib/accountapi"
+import router from "next/router"
+import { useState, useEffect } from "react"
 import ColorPalette from "./ColorPalette"
 import Themes from "./Themes"
 
 const UpdateCard = ({setShowUserCard, setShowUpdate, setShowUpdateCard}: any) => {
+    const [userDetails, setUserDetails] = useState({
+        name: "",
+        email: "",
+        type: "",
+    })
+
+    const [cardInfo, setCardInfo] = useState({
+        profession: "",
+        organisation: "",
+        firmType: "",
+        contactNo: "",
+        socials: [],
+    })
+    
+    useEffect(()=>{
+        AccountAPI.getUserInformation()
+        .then((res: any) => {
+            if(res.total==0) router.push('/signup')
+            const data = res.documents[0]
+            setUserDetails((prev: any) => ({
+                ...prev,
+                name: data.name,
+                email: data.email,
+                type: data.type,
+            }))
+        })
+
+        AccountAPI.fetchingProfile()
+        .then((res: any) => {
+            const data = res.documents[0]
+            setCardInfo((prev: any) => ({
+                ...prev,
+                profession: data.profession,
+                organisation: data.organisation,
+                firmType: data.firmType,
+                contactNo: data.contactNo,
+                socials: data.socials,
+            }))
+        })
+    },[])
+
     return (
         <div
         className='flex flex-col gap-[25px] h-screen w-full pt-[85px] p-7 ml-3 overflow-hidden max-[1070px]:pb-[70px] max-[470px]:ml-0'
@@ -28,7 +72,7 @@ const UpdateCard = ({setShowUserCard, setShowUpdate, setShowUpdateCard}: any) =>
             </div>
 
             <div className="flex flex-col gap-[35px] overflow-scroll overflow-x-hidden max-[580px]:gap-[20px]">
-                <Themes />
+                {cardInfo.socials.length != 0 && <Themes userDetails={userDetails} cardInfo={cardInfo} />}
                 <ColorPalette />
 
                 <div className="min-[580px]:hidden flex gap-[30px] justify-center items-center">

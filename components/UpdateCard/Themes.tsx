@@ -1,7 +1,7 @@
 import Template1 from "@/lib/templates/template1";
 
-const Themes = () => {
-    const themeStyle = "absolute -top-[66px] -left-[108px] w-[475px] h-[282px] bg-[#bae8e8] rounded-xl scale-[0.55] z-20 hover:cursor-pointer";
+const Themes = ({userDetails, cardInfo}: any) => {
+    const themeStyle = "absolute -top-[66px] -left-[108px] w-[475px] h-[282px] bg-[#ffd803] rounded-xl scale-[0.55] z-20 hover:cursor-pointer";
 
     return (
         <div className="border-b-2 border-slate-300 pb-3">
@@ -15,7 +15,7 @@ const Themes = () => {
                 <div className="relative w-[262px] h-[155px]">
                     <div
                     className={themeStyle}
-                    ><Template1 /></div>
+                    ><Template1 userDetails={userDetails} cardInfo={cardInfo} /></div>
                 </div>
                 
             </div>
