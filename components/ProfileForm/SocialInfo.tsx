@@ -19,7 +19,7 @@ const SocialsInfo = () => {
             >
                 <p
                 className='text-xl font-medium'
-                >LinkedIn</p>
+                >Website</p>
                 <input
                 className={inputStyle}
                 type='text'
@@ -30,13 +30,24 @@ const SocialsInfo = () => {
 
                 <p
                 className='text-xl font-medium'
+                >LinkedIn</p>
+                <input
+                className={inputStyle}
+                type='text'
+                placeholder='LinkedIn'
+                name='1'
+                onChange={(e: any) => {links[1] = e.target.value}}
+                />
+
+                <p
+                className='text-xl font-medium'
                 >Twitter</p>
                 <input
                 className={inputStyle}
                 type='text'
                 placeholder='Twitter'
-                name='1'
-                onChange={(e: any) => {links[1] = e.target.value}}
+                name='2'
+                onChange={(e: any) => {links[2] = e.target.value}}
                 />
 
                 <p
@@ -46,8 +57,8 @@ const SocialsInfo = () => {
                 className={inputStyle}
                 type='text'
                 placeholder='Instagram'
-                name='2'
-                onChange={(e: any) => {links[2] = e.target.value}}
+                name='3'
+                onChange={(e: any) => {links[3] = e.target.value}}
                 />
 
                 <p              
@@ -57,8 +68,8 @@ const SocialsInfo = () => {
                 className={inputStyle}
                 type='text'
                 placeholder='Github'
-                name='3'
-                onChange={(e: any) => {links[3] = e.target.value}}
+                name='4'
+                onChange={(e: any) => {links[4] = e.target.value}}
                 />
 
                 <p              
@@ -68,8 +79,8 @@ const SocialsInfo = () => {
                 className={inputStyle}
                 type='text'
                 placeholder='Facebook'
-                name='4'
-                onChange={(e: any) => {links[4] = e.target.value}}
+                name='5'
+                onChange={(e: any) => {links[5] = e.target.value}}
                 />
 
                 <p              
@@ -79,8 +90,8 @@ const SocialsInfo = () => {
                 className={inputStyle}
                 type='text'
                 placeholder='Discord'
-                name='5'
-                onChange={(e: any) => {links[5] = e.target.value}}
+                name='6'
+                onChange={(e: any) => {links[6] = e.target.value}}
                 />
 
                 <p              
@@ -90,8 +101,8 @@ const SocialsInfo = () => {
                 className={inputStyle}
                 type='text'
                 placeholder='Telegram'
-                name='6'
-                onChange={(e: any) => {links[6] = e.target.value}}
+                name='7'
+                onChange={(e: any) => {links[7] = e.target.value}}
                 />
             </div>
 

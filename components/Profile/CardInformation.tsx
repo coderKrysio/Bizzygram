@@ -1,15 +1,13 @@
-import { AccountAPI, TypeValue } from "@/lib/accountapi";
-import { useEffect, useState } from "react";
+import { TypeValue } from "@/lib/accountapi";
 
 const CardInformation = ({cardInfo, setCardInfo}: any) => {
-    console.log(cardInfo)
-    const inputStyle = "rounded-md border border-slate-300 py-1 px-3 text-lg mb-2 bg-[#bae8e8] text-[#272343] font-medium focus:outline-none focus:ring-[#272343] focus:ring-2 max-[550px]:mb-[20px]";
+    const inputStyle = "rounded-md border border-slate-300 py-1 px-3 text-lg mb-2 bg-[#bae8e8] text-[#272343] font-medium focus:outline-none focus:ring-[#272343] focus:ring-2 max-[550px]:mb-[20px] placeholder:";
 
     const handleChange = (e: any) => {
-        const [name, value] = e.target;
+        const {name, value} = e.target;
         setCardInfo((prev: any) => ({
             ...prev,
-            name: {value},
+            [name]: value,
         }))
     }
   
@@ -32,6 +30,7 @@ const CardInformation = ({cardInfo, setCardInfo}: any) => {
                         className={inputStyle}
                         type='text'
                         name="profession"
+                        placeholder="Profession"
                         value={cardInfo.profession}
                         onChange={handleChange}
                         />
@@ -44,6 +43,7 @@ const CardInformation = ({cardInfo, setCardInfo}: any) => {
                         className={inputStyle}
                         type='text'
                         name="organisation"
+                        placeholder="Organisation"
                         value={cardInfo.organisation}
                         onChange={handleChange}
                         /> 
@@ -56,6 +56,7 @@ const CardInformation = ({cardInfo, setCardInfo}: any) => {
                         className={inputStyle}
                         type='text'
                         name="firmType"
+                        placeholder="Firm Type"
                         value={cardInfo.firmType}
                         onChange={handleChange}
                         />
@@ -69,6 +70,7 @@ const CardInformation = ({cardInfo, setCardInfo}: any) => {
                     className={inputStyle}
                     type='text'
                     name="contactNo"
+                    placeholder="Contact No"
                     value={cardInfo.contactNo}
                     onChange={handleChange}
                     />
