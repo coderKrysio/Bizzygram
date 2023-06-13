@@ -2,8 +2,33 @@ import UserInformation from './UserInformation'
 import CardInformation from './CardInformation'
 import SocialInformation from './SocialInformation'
 import ProfilePhoto from './ProfilePhoto'
+import { useEffect, useState } from 'react'
+import { AccountAPI } from '@/lib/accountapi'
 
 const ProfilePanel = () => {
+    const [cardInfo, setCardInfo] = useState({
+        profession: "",
+        organisation: "",
+        firmType: "",
+        contactNo: "",
+        socials: [],
+    })
+
+    useEffect(()=>{
+        AccountAPI.fetchingProfile()
+        .then((res: any) => {
+            const data = res.documents[0]
+            setCardInfo((prev: any) => ({
+                ...prev,
+                profession: data.profession,
+                organisation: data.organisation,
+                firmType: data.firmType,
+                contactNo: data.contactNo,
+                socials: data.socials,
+            }))
+        })
+    },[])
+    
     return (
         <div
         className='flex flex-col gap-[25px] h-screen w-full pt-[85px] p-7 ml-3 max-[1070px]:pb-[70px] max-[470px]:ml-0'
@@ -18,7 +43,7 @@ const ProfilePanel = () => {
                 >
                     <ProfilePhoto />
                     <UserInformation />
-                    <CardInformation />
+                    <CardInformation cardInfo={cardInfo} setCardInfo={setCardInfo} />
                     <SocialInformation />
 
                     <button
