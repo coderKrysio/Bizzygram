@@ -70,6 +70,14 @@ export const AccountAPI = {
         )
     },
 
+    getUserInformation: async() => {
+        return await database.listDocuments(DATABASE_ID, USER_COLLECTION_ID,
+            [
+                Query.equal("userId", [UserId]),
+            ]
+        )
+    },
+
     gettingTypeValue: async () => {
         return await database.listDocuments(DATABASE_ID, USER_COLLECTION_ID,
         [

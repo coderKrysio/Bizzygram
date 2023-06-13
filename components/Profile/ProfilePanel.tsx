@@ -3,9 +3,18 @@ import CardInformation from './CardInformation'
 import SocialInformation from './SocialInformation'
 import ProfilePhoto from './ProfilePhoto'
 import { useEffect, useState } from 'react'
-import { AccountAPI } from '@/lib/accountapi'
+import { AccountAPI, Client_Account } from '@/lib/accountapi'
+import { useRouter } from 'next/navigation'
 
 const ProfilePanel = () => {
+    const router = useRouter()
+
+    const [userDetails, setUserDetails] = useState({
+        name: "",
+        email: "",
+        type: "",
+    })
+
     const [cardInfo, setCardInfo] = useState({
         profession: "",
         organisation: "",
@@ -15,6 +24,18 @@ const ProfilePanel = () => {
     })
 
     useEffect(()=>{
+        AccountAPI.getUserInformation()
+        .then((res: any) => {
+            if(res.total==0) router.push('/signup')
+            const data = res.documents[0]
+            setUserDetails((prev: any) => ({
+                ...prev,
+                name: data.name,
+                email: data.email,
+                type: data.type,
+            }))
+        })
+
         AccountAPI.fetchingProfile()
         .then((res: any) => {
             const data = res.documents[0]
@@ -42,7 +63,7 @@ const ProfilePanel = () => {
                 className='flex flex-col gap-[35px] overflow-scroll overflow-x-hidden'
                 >
                     <ProfilePhoto />
-                    <UserInformation />
+                    <UserInformation userDetails={userDetails} />
                     <CardInformation cardInfo={cardInfo} setCardInfo={setCardInfo} />
                     <SocialInformation />
 
