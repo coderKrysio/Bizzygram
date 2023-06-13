@@ -1,101 +1,105 @@
 import Link from "next/link"
 
-const Template1 = ({scale}: any) => {
+const Template1 = ({scale, userDetails, cardInfo, socials}: any) => {
+    console.log(socials)
     return (
         <div
         className={`relative w-full h-full p-5 flex flex-col rounded-[16px] justify-center items-center backdrop-blur-lg bg-gradient-to-br from-[#ffffff66] to-[#ffffff33] ${scale}`}
         >
             <div
-            className="flex flex-col justify-center items-center mb-[20px]"
+            className="flex flex-col justify-center items-center mb-[50px]"
             >
-                <h1
-                className="text-4xl font-bold text-white"
-                >John Doe</h1>
+                <h3
+                className="text-2xl font-bold text-white"
+                >{userDetails.name}</h3>
 
                 <h3
                 className="text-lg font-medium"
-                >Student</h3>
+                >{cardInfo.profession}</h3>
 
                 <p
                 className="text-md font-medium"
-                >VIT Bhopal University</p>
-
-                <Link 
-                className="text-sm font-medium" 
-                href={"https://google.com"} 
-                target="_blank"
-                >johndoe.com</Link>
+                >{cardInfo.organisation}</p>
             </div>
 
             <div
-            className="absolute bottom-0 w-full flex justify-center items-center gap-[25px] pt-[10px] pb-[20px]"
+            className="absolute bottom-0 mb-5 w-full flex justify-center items-center gap-[25px]"
             >
-                <Link 
+                {cardInfo.socials[0] != "" && <Link 
                 target="_blank"
-                href={"https://github.com/coderKrysio"}>
+                href={cardInfo.socials[0]}>
+                    <img
+                    width={"25px"}
+                    src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686664678/web_gcandf.png"
+                    />
+                </Link>}
+                
+                {cardInfo.socials[1] != "" && <Link 
+                target="_blank"
+                href={cardInfo.socials[1]}>
                     <img
                     width={"25px"}
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686288647/linkedin_b20ye2.png"
                     />
-                </Link>
+                </Link>}
                 
-                <Link 
+                {cardInfo.socials[2] != "" && <Link 
                 target="_blank"
-                href={"https://github.com/coderKrysio"}>
+                href={cardInfo.socials[2]}>
                     <img
                     width={"25px"}
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686288648/twitter_q1bm12.png"
                     />
-                </Link>
+                </Link>}
 
-                <Link 
+                {cardInfo.socials[3] != "" && <Link 
                 target="_blank"
-                href={"https://github.com/coderKrysio"}>
+                href={cardInfo.socials[3]}>
                     <img
                     width={"25px"}
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686288648/instagram_d9iojt.png"
                     />
-                </Link>
+                </Link>}
 
-                <Link 
+                {cardInfo.socials[4] != "" && <Link 
                 target="_blank"
-                href={"https://github.com/coderKrysio"}>
+                href={cardInfo.socials[4]}>
                     <img
                     width={"25px"}
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686288650/github_ddqtuo.png"
                     />
-                </Link>
+                </Link>}
 
-                <Link 
+                {cardInfo.socials[5] != "" && <Link 
                 target="_blank"
-                href={"https://github.com/coderKrysio"}>
+                href={cardInfo.socials[5]}>
                     <img
                     width={"25px"}
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686288872/facebook-app-symbol_flf5yh.png"
                     />
-                </Link>
+                </Link>}
 
-                <Link 
+                {cardInfo.socials[6] != "" && <Link 
                 target="_blank"
-                href={"https://github.com/coderKrysio"}>
+                href={cardInfo.socials[6]}>
                     <img
                     width={"25px"}
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686288873/discord_ftcfae.png"
                     />
-                </Link>
+                </Link>}
 
-                <Link 
+                {cardInfo.socials[7] != "" && <Link 
                 target="_blank"
-                href={"https://github.com/coderKrysio"}>
+                href={cardInfo.socials[7]}>
                     <img
                     width={"25px"}
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686288874/telegram_pgcok3.png"
                     />
-                </Link>
+                </Link>}
 
                 <Link 
                 target="_blank"
-                href={"https://github.com/coderKrysio"}>
+                href={`mailto:${userDetails.email}`}>
                     <img
                     width={"25px"}
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686312654/email_tajpoz.png"
@@ -104,7 +108,7 @@ const Template1 = ({scale}: any) => {
 
                 <Link 
                 target="_blank"
-                href={"https://github.com/coderKrysio"}>
+                href={`tel:${cardInfo.contactNo}`}>
                     <img
                     width={"25px"}
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686354043/phone-call_nad0u4.png"
