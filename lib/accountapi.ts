@@ -131,6 +131,24 @@ export const AccountAPI = {
         )
     },
 
+    updatingProfile: async(cardInfo: any) => {
+        return await database.listDocuments(DATABASE_ID, PROFILE_COLLECTION_ID,
+            [
+                Query.equal("userId", [UserId]),
+            ]
+        ).then((res: any) => {
+            database.updateDocument(DATABASE_ID, PROFILE_COLLECTION_ID, res.documents[0].$id, {
+                profession: cardInfo.profession,
+                organisation: cardInfo.organisation,
+                firmType: cardInfo.firmType,
+                contactNo: cardInfo.contactNo,
+                socials: cardInfo.socials,
+            }
+            ).then((response: any) => { console.log(response, "updated profile")
+            }).catch((err: any) => console.log(err))
+        }).catch((err: any) => console.log(err))
+    },
+
     userInitials: async() => {
         return avatars.getInitials().href
     },
