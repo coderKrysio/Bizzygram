@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { QrReader } from "react-qr-reader";
 
 const ScannerModal = ({setScannerModal}: any) => {
-    const [webcamResult, setWebcamResult] = useState();
+    const router = useRouter();
+    
     const webcamScan = (result: any) => {
-        if (result) {
-            console.log(result.text,"result")
-            setWebcamResult(result.text);
+        if(result) {
+            router.push(result.text);
         }
     };
 
@@ -31,12 +31,9 @@ const ScannerModal = ({setScannerModal}: any) => {
                 className="h-[325px] w-[325px] bg-[#ffd803] rounded-[8px] max-[470px]:w-[275px] max-[470px]:h-[275px]"
                 >
                     <QrReader
-                    scanDelay={300}
                     onResult={webcamScan}
                     constraints={{facingMode: "environment"}}
-                    videoContainerStyle={{border: 1, borderColor: "red"}}
                     />
-                    <p>{webcamResult}</p>
                 </div>
             </div>
         </div>
