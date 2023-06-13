@@ -25,6 +25,8 @@ const ProfileModal = ({setShowProfile, setShowConnections, setShowUserCard, setS
     }
 
     const handleLogOut = async () => {
+        localStorage.setItem("userId", "");
+        localStorage.setItem("type", "");
         AccountAPI.deleteSession()
         router.push('/login');
     }

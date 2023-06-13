@@ -6,10 +6,10 @@ const Template1 = ({scale, userDetails, cardInfo}: any) => {
         className={`relative w-full h-full p-5 flex flex-col rounded-[16px] justify-center items-center backdrop-blur-lg bg-gradient-to-br from-[#ffffff66] to-[#ffffff33] ${scale}`}
         >
             <div
-            className="flex flex-col justify-center items-center mb-[50px]"
+            className="flex flex-col justify-center items-center mb-[15px]"
             >
                 <h3
-                className="text-2xl font-bold text-white"
+                className="text-2xl font-bold"
                 >{userDetails.name}</h3>
 
                 <h3

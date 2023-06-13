@@ -3,19 +3,15 @@ import Navbar from '@/components/Navigation/Navbar';
 import ProfileForm from '@/components/ProfileForm/ProfileForm';
 import SocialsInfo from '@/components/ProfileForm/SocialInfo';
 import UserProfile from '@/components/UserProfile';
-import { AccountAPI, Client_Account, TypeValue } from '@/lib/accountapi';
+import { AccountAPI, Client_Account, TypeValue, UserId } from '@/lib/accountapi';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const Profile = () => {
     const router = useRouter();
-    const [seeDetails, setSeeDetails] = useState(false);   
     const [user, setUser] = useState(null)
     const [profileUser, setProfileUser] = useState(-1);
     const [profileIcon, setProfileIcon] = useState(false)
-    const [profileForm, setProfileForm] = useState(true);
-    const [socialsData, setSocialsData] = useState(false)
-    const [profilePhoto, setProfilePhoto] = useState();
     const [QRCode, setQRCode] = useState();
     const [profileDetails, setProfileDetails] = useState({
         userId: "",
@@ -54,7 +50,7 @@ const Profile = () => {
 
     return (
         <>            
-            {user &&            
+            {UserId != "" ?         
                 profileUser == 0 ? 
                     <div className='flex w-screen h-screen overflow-hidden'>
                         <div className='flex flex-col h-screen w-full pt-[60px]'>
@@ -63,7 +59,8 @@ const Profile = () => {
                         </div>
                     </div>
                     : 
-                <UserProfile />
+                <UserProfile /> :
+                router.push("/")
             }
         </>
     )

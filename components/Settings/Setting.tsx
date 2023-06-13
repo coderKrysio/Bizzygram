@@ -31,6 +31,8 @@ const Setting = ({
     }
 
     const handleLogOut = async () => {
+        localStorage.setItem("userId", "");
+        localStorage.setItem("type", "");
         AccountAPI.deleteSession()
         router.push('/login');
     }
