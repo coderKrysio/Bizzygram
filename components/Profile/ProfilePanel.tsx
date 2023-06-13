@@ -23,6 +23,10 @@ const ProfilePanel = () => {
         socials: [],
     })
 
+    const updateProfile = () => {
+        AccountAPI.updatingProfile(cardInfo)
+    }
+
     useEffect(()=>{
         AccountAPI.getUserInformation()
         .then((res: any) => {
@@ -69,6 +73,7 @@ const ProfilePanel = () => {
 
                     <button
                     className='min-[1070px]:hidden text-xl w-fit font-semibold tracking-wide border-2 border-[#272343] m-auto mb-5 px-7 py-2 rounded-xl hover:bg-[#ffd803] hover:border-[#ffd803] max-[1180px]:relative'
+                    onClick={updateProfile}
                     >Save</button>
                 </div>
 
@@ -81,6 +86,7 @@ const ProfilePanel = () => {
 
                     <button
                     className='absolute bottom-0 mb-7 text-xl w-fit font-semibold tracking-wide border-2 border-[#272343] m-5 px-7 py-2 rounded-xl hover:bg-[#ffd803] hover:border-[#ffd803] max-[1180px]:relative'
+                    onClick={updateProfile}
                     >Save</button>
                 </div>
             </div>
