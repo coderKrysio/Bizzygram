@@ -10,7 +10,6 @@ import { useEffect, useState } from 'react';
 
 const Profile = () => {
     const router = useRouter();
-    const [userDetails, setUserDetails] = useState<any>(null);
     const [seeDetails, setSeeDetails] = useState(false);   
     const [user, setUser] = useState(null)
     const [profileUser, setProfileUser] = useState(-1);
@@ -27,7 +26,6 @@ const Profile = () => {
         AccountAPI.getAccount()
         .then((res: any) => {
             setUser(res)
-            checkAccount(res)
             AccountAPI.findingUser(res).then((response: any) => {
                 setProfileDetails((prev: any) => ({
                     ...prev,
@@ -40,15 +38,6 @@ const Profile = () => {
             AccountAPI.gettingTypeValue()
         })
         .catch((err) => console.log(err));     
-    }
-
-    const checkAccount = (response: any) => {
-        AccountAPI.getUserDocument(response)
-        .then((res) => {
-            if(res.total==0) router.push('/signup')
-            const data = res.documents[0]
-            setUserDetails(data)
-        })
     }
 
     const handleLogOut = async () => {
