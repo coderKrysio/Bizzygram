@@ -1,6 +1,14 @@
-import React from 'react'
+import { AccountAPI } from '@/lib/accountapi';
+import React, { useEffect, useState } from 'react'
 
 const Navbar = ({setScannerModal, setProfileModal}: any) => {
+    const [profilePhoto, setProfilePhoto] = useState();
+    
+    useEffect(() => {
+        AccountAPI.userInitials()
+        .then((res: any) => setProfilePhoto(res))
+    },[])
+
     return (
         <div
         className='fixed left-0 top-0 flex justify-center items-center w-screen h-[60px] z-10 border-b-[3px] border-slate-300 bg-[#bae8e8] max-[550px]:justify-start max-[1070px]:bg-[#ffe65b]'
@@ -23,9 +31,11 @@ const Navbar = ({setScannerModal, setProfileModal}: any) => {
             /></button>
 
             <div
-            className='w-[44px] h-[44px] bg-[#ffd803] rounded-[22px] border-[3px] border-red-500 hover:border-[#272323] hover:cursor-pointer focus:border-[#272323]'
+            className='w-[46px] h-[46px] bg-[#fff] rounded-[23px] border-[3px] border-[#272323] hover:cursor-pointer overflow-hidden'
             onClick={() => setProfileModal((prev: any) => !prev)}
-            ></div>
+            ><img 
+                src={profilePhoto}
+            /></div>
             </div>
             
         </div>
