@@ -1,7 +1,7 @@
 import { AccountAPI } from '@/lib/accountapi';
 import React, { useEffect, useState } from 'react'
 
-const Navbar = ({setScannerModal, setProfileModal}: any) => {
+const Navbar = ({profileIcon, setScannerModal, setProfileModal}: any) => {
     const [profilePhoto, setProfilePhoto] = useState();
     
     useEffect(() => {
@@ -30,12 +30,12 @@ const Navbar = ({setScannerModal, setProfileModal}: any) => {
                 onClick={() => setScannerModal((prev: any) => !prev)}
             /></button>
 
-            <div
+            {profileIcon && <div
             className='w-[46px] h-[46px] bg-[#fff] rounded-[23px] border-[3px] border-[#272323] hover:cursor-pointer overflow-hidden'
             onClick={() => setProfileModal((prev: any) => !prev)}
             ><img 
                 src={profilePhoto}
-            /></div>
+            /></div>}
             </div>
             
         </div>

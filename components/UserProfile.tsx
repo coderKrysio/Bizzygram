@@ -23,6 +23,7 @@ const UserProfile = () => {
     const [showQR, setShowQR] = useState(false)
     const [profileModal, setProfileModal] = useState(false)
     const [scannerModal, setScannerModal] = useState(false)
+    const [profileIcon, setProfileIcon] = useState(true)
 
     useEffect(() => {
         if(showUpdate) {
@@ -39,6 +40,7 @@ const UserProfile = () => {
         className="bg-[#f3fbfb] text-[#272343] flex w-screen h-screen overflow-hidden"
         >
             <Navbar
+                profileIcon={profileIcon}
                 setScannerModal={setScannerModal}
                 setProfileModal={setProfileModal}
             />

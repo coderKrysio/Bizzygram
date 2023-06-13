@@ -1,4 +1,5 @@
 "use client";
+import Navbar from '@/components/Navigation/Navbar';
 import SignUpMain from '@/components/SignUp-In/SignUpMain';
 import UserType from '@/components/SignUp-In/UserType';
 import { AccountAPI, Client_Account } from '@/lib/accountapi';
@@ -10,6 +11,7 @@ export default function SignUp() {
     const router = useRouter();
     const [user, setUser] = useState(null);
     const [userNo, setUserNo] = useState(-1);
+    const [profileIcon, setProfileIcon] = useState(false)
     const [showUserType, setShowUserType] = useState(true);
     const [userType, setUserType] = useState(false);
 
@@ -76,13 +78,14 @@ export default function SignUp() {
     }, [userNo])
 
     return (
-        <div>
+        <>
+            <Navbar profileIcon={profileIcon} />
             {user ? 
                 <>
                     {router.push(`/profile/${details.userId}`)}
                 </>
             : 
-            <div className='flex h-screen w-screen justify-center items-center bg-[#f3fbfb] text-[#272343]'>
+            <div className='flex h-screen w-screen justify-center items-center bg-[#f3fbfb] text-[#272343] pt-[60px]'>
                 <div className='flex flex-col justify-start items-center h-full w-fit m-auto'>
                     {showUserType && <UserType details={details} setDetails={setDetails} setUserType={setUserType} setShowUserType={setShowUserType} />}
                     {!showUserType && userType && <SignUpMain
@@ -99,6 +102,6 @@ export default function SignUp() {
                     >Already have an account. <Link href={'/login'} className='text-[#5fc9f8] underline'>Log In</Link> now</p>
                 </div>
             </div>}
-        </div>
+        </>
     )
 }
