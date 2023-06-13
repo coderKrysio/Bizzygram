@@ -23,7 +23,7 @@ const SocialsInfo = () => {
                 <input
                 className={inputStyle}
                 type='text'
-                placeholder='LinkedIn'
+                placeholder='Website'
                 name='0'
                 onChange={(e: any) => {links[0] = e.target.value}}
                 />
