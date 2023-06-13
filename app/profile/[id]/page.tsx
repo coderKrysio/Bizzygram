@@ -12,6 +12,7 @@ const Profile = () => {
     const [seeDetails, setSeeDetails] = useState(false);   
     const [user, setUser] = useState(null)
     const [profileUser, setProfileUser] = useState(-1);
+    const [profileIcon, setProfileIcon] = useState(false)
     const [profileForm, setProfileForm] = useState(true);
     const [socialsData, setSocialsData] = useState(false)
     const [profilePhoto, setProfilePhoto] = useState();
@@ -45,10 +46,9 @@ const Profile = () => {
 
     useEffect(() => {
         if(profileUser==1) {
-            // AccountAPI.userInitials()
-            // .then((res: any) => setProfilePhoto(res))
             // AccountAPI.userQRCode()
             // .then((res: any) => setQRCode(res))
+            setProfileIcon(true)
         } 
     },[profileUser])
 
@@ -58,7 +58,7 @@ const Profile = () => {
                 profileUser == 0 ? 
                     <div className='flex w-screen h-screen overflow-hidden'>
                         <div className='flex flex-col h-screen w-full pt-[60px]'>
-                            <Navbar />
+                            <Navbar profileIcon={profileIcon} />
                             <ProfileForm />
                         </div>
                     </div>
