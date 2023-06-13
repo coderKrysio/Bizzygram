@@ -1,13 +1,15 @@
 import { AccountAPI } from "@/lib/accountapi"
+import { useRouter } from "next/navigation";
 
-const SocialsInfo = ({setSocialsData}: any) => {
+const SocialsInfo = () => {
+    const router = useRouter()
     const links: any = []
 
     const inputStyle = "rounded-md border border-slate-300 py-1 px-3 text-lg mb-2 bg-[#bae8e8] text-[#272343] font-medium focus:outline-none focus:ring-[#272343] focus:ring-2 max-[550px]:mb-[20px]";
 
     const handleNextBtn = () => {       
         AccountAPI.updatingSocials(links)
-        setSocialsData(true)
+        router.refresh()
     }
 
     return (
@@ -87,14 +89,14 @@ const SocialsInfo = ({setSocialsData}: any) => {
                 <input
                 className={inputStyle}
                 type='text'
-                placeholder='Twitter'
+                placeholder='Telegram'
                 name='6'
                 onChange={(e: any) => {links[6] = e.target.value}}
                 />
             </div>
 
             <button
-            className='text-xl w-fit font-semibold tracking-wide border-2 border-[#272343] m-4 px-7 py-2 rounded-xl hover:bg-[#ffd803] hover:border-[#ffd803] max-[1180px]:relative'
+            className='text-xl w-fit font-semibold tracking-wide border-2 border-[#272343] m-3 px-7 py-2 rounded-xl hover:bg-[#ffd803] hover:border-[#ffd803] max-[1180px]:relative'
             onClick={handleNextBtn}
             >Done</button>
         </div>

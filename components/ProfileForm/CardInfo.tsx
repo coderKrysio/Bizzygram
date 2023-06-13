@@ -1,7 +1,15 @@
 import { AccountAPI, TypeValue } from '@/lib/accountapi'
+import { useState } from 'react'
 
 
-const CardInfo = ({profileDetails , setProfileDetails, setProfileForm, setOpenSocials}: any) => {
+const CardInfo = ({setOpenSocials}: any) => {
+    const [profileDetails, setProfileDetails] = useState({
+        contactNo: "",
+        profession: "",
+        organisation: "",
+        firmType: "",
+    })
+
     function handleChange(e: any) {
         const {name, value} = e.target
         setProfileDetails((prev: any) => ({
@@ -12,7 +20,7 @@ const CardInfo = ({profileDetails , setProfileDetails, setProfileForm, setOpenSo
 
     const handleNextBtn = () => {
         setOpenSocials(true)
-        // AccountAPI.addingNewProfile(profileDetails)
+        AccountAPI.addingNewProfile(profileDetails)
     }
 
     const inputStyle = "rounded-md border border-slate-300 py-1 px-3 text-lg mb-2 bg-[#bae8e8] text-[#272343] font-medium focus:outline-none focus:ring-[#272343] focus:ring-2 max-[550px]:mb-[20px]";

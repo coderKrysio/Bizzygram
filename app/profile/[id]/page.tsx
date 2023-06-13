@@ -3,6 +3,7 @@ import Navbar from '@/components/Navigation/Navbar';
 import Scanner from '@/components/Navigation/Scanner';
 import ProfileForm from '@/components/ProfileForm/ProfileForm';
 import SocialsInfo from '@/components/ProfileForm/SocialInfo';
+import UserProfile from '@/components/UserProfile';
 import { AccountAPI, Client_Account, TypeValue } from '@/lib/accountapi';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -20,10 +21,6 @@ const Profile = () => {
     const [profileDetails, setProfileDetails] = useState({
         userId: "",
         type: "",
-        contactNo: "",
-        profession: "",
-        organisation: "",
-        firmType: "",
     })
 
     const getSession =async () => {
@@ -65,51 +62,27 @@ const Profile = () => {
 
     useEffect(() => {
         if(profileUser==1) {
-            AccountAPI.userInitials()
-            .then((res: any) => setProfilePhoto(res))
-            AccountAPI.userQRCode()
-            .then((res: any) => setQRCode(res))
+            // AccountAPI.userInitials()
+            // .then((res: any) => setProfilePhoto(res))
+            // AccountAPI.userQRCode()
+            // .then((res: any) => setQRCode(res))
         } 
     },[profileUser])
 
     return (
-        <div className='flex w-screen h-screen overflow-hidden'>
-            <Navbar />
-            <div className='flex flex-col h-screen w-full pt-[60px]'>
+        <>            
             {user &&            
-            //     profileUser == 0 ? 
-            //         <>
-            //             {profileForm ? <ProfileForm profileDetails={profileDetails} setProfileDetails={setProfileDetails} setProfileForm={setProfileForm} />
-            //             : <SocialsInfo setSocialsData={setSocialsData} />}
-            //         </>
-            //         : 
-            //         <div>
-            //             <p>Profile</p>
-            //         </div>
-            // }   
-            /* <div>
-                <p>Profile</p>
-                <br />
-
-                <div>
-                    user initials
-                    <img 
-                    src={profilePhoto}
-                    />
-
-                    <img 
-                    width={"250px"}
-                    src={QRCode}
-                    />
-                </div>
-                <Scanner />
-                <button onClick={handleLogOut}>
-                    Logout
-                </button>
-            </div>      */
-            <ProfileForm profileDetails={profileDetails} setProfileDetails={setProfileDetails} setProfileForm={setProfileForm} />}
-            </div>
-        </div>
+                profileUser == 0 ? 
+                    <div className='flex w-screen h-screen overflow-hidden'>
+                        <div className='flex flex-col h-screen w-full pt-[60px]'>
+                            <Navbar />
+                            <ProfileForm />
+                        </div>
+                    </div>
+                    : 
+                <UserProfile />
+            }
+        </>
     )
 }
 
