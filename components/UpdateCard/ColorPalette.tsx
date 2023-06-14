@@ -1,8 +1,5 @@
-import { ColorPalette1} from "@/lib/colortemplates";
-
 const ColorPalette = () => {
     const paletteStyle = "h-[130px] w-[130px] rounded-[65px] border-[5px] border-[#f3fbfb]";
-    const selectedColor = "hover:border-[#17242a]"
 
     return (
         <div className="border-b-2 border-slate-300 pb-3">
