@@ -15,6 +15,7 @@ import { AccountAPI } from '@/lib/accountapi'
 import { useRouter } from 'next/navigation'
 
 const UserProfile = () => {
+    const router = useRouter();
     const [showProfile, setShowProfile] = useState(false)
     const [showConnections, setShowConnections] = useState(true)
     const [showUserCard, setShowUserCard] = useState(false)
@@ -26,8 +27,8 @@ const UserProfile = () => {
     const [profileModal, setProfileModal] = useState(false)
     const [scannerModal, setScannerModal] = useState(false)
     const [profileIcon, setProfileIcon] = useState(true)
-    const router = useRouter()
     const [profilePhoto, setProfilePhoto] = useState();
+    const [qrCode, setQRCode] = useState();
     const [userDetails, setUserDetails] = useState({
         name: "",
         email: "",
@@ -45,6 +46,9 @@ const UserProfile = () => {
     useEffect(()=>{
         AccountAPI.userInitials()
         .then((res: any) => setProfilePhoto(res))
+
+        AccountAPI.userQRCode()
+        .then((res: any) => setQRCode(res))
 
         AccountAPI.getUserInformation()
         .then((res: any) => {
@@ -126,7 +130,9 @@ const UserProfile = () => {
                 userDetails,
             }}/>
 
-            {showQR ? <QRCode /> : 
+            {showQR ? <QRCode {...{
+                qrCode,
+            }}/> : 
                 showUpdate ? <UpdateCard {...{
                     setShowUserCard,
                     setShowUpdateCard,

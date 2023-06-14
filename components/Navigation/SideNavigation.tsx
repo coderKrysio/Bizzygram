@@ -1,7 +1,3 @@
-import { AccountAPI } from "@/lib/accountapi";
-import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
-
 const SideNavigation = ({
     showProfile, 
     setShowProfile, 
@@ -22,7 +18,6 @@ const SideNavigation = ({
     const btnDesign = 'text-[#272343] text-xl font-semibold tracking-wide w-full py-3 rounded-xl hover:bg-[#ffd803] hover:border-0'
 
     const selectedBtn = "font-semibold tracking-wide w-full py-3 rounded-xl bg-[#ffd803] text-[#272343] text-xl focus:outline-none"
-    const router = useRouter()
 
     const updatePanel = (arg: any) => {
         setProfileModal(false)
@@ -144,8 +139,7 @@ const SideNavigation = ({
                     title="Help"
                     width={"25px"}
                 /></button>
-            </div>
-            
+            </div>            
         </div>
     )
 }
