@@ -1,6 +1,4 @@
-import { AccountAPI, Client_Account, TypeValue } from "@/lib/accountapi";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { TypeValue } from "@/lib/accountapi";
 
 const UserInformation = ({userDetails}: any) => {
     const inputStyle = "rounded-md border border-slate-300 py-1 px-3 text-lg mb-2 bg-[#bae8e8] text-[#272343] font-medium focus:outline-none focus:ring-[#272343] focus:ring-2 max-[550px]:mb-[20px]";
