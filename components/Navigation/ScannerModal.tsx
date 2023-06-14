@@ -19,8 +19,8 @@ const ScannerModal = ({setScannerModal}: any) => {
                 className="absolute right-0 top-0 m-5"
                 onClick={() => setScannerModal(false)}
                 ><img
-                src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686137191/close_uq5hed.png"
-                width={"22px"}
+                    src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686137191/close_uq5hed.png"
+                    width={"22px"}
                 /></button>
 
                 <h1
@@ -31,8 +31,8 @@ const ScannerModal = ({setScannerModal}: any) => {
                 className="h-[325px] w-[325px] bg-[#ffd803] rounded-[8px] max-[470px]:w-[275px] max-[470px]:h-[275px]"
                 >
                     <QrReader
-                    onResult={webcamScan}
-                    constraints={{facingMode: "environment"}}
+                        onResult={webcamScan}
+                        constraints={{facingMode: "environment"}}
                     />
                 </div>
             </div>
