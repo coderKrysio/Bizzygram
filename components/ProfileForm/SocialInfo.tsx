@@ -3,17 +3,16 @@ import { useRouter } from "next/navigation";
 
 const SocialsInfo = () => {
     const router = useRouter()
-    const links: any = []
+    const links: any = ["","", "", "", "", "", "", ""]
 
     const inputStyle = "rounded-md border border-slate-300 py-1 px-3 text-lg mb-2 bg-[#bae8e8] text-[#272343] font-medium focus:outline-none focus:ring-[#272343] focus:ring-2 max-[550px]:mb-[20px]";
 
     const handleNextBtn = () => {       
         AccountAPI.updatingSocials(links)
-        router.refresh()
     }
 
     return (
-        <div className='flex flex-col justify-center items-center'>
+        <div className='flex flex-col justify-center items-center overflow-scroll mb-[40px]'>
             <div 
             className='grid grid-cols-[150px_minmax(150px,_300px)] items-center gap-[15px] max-[550px]:grid-cols-1 max-[550px]:gap-[5px]'
             >
