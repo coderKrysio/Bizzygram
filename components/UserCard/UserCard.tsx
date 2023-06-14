@@ -3,47 +3,12 @@ import router from "next/router"
 import { useState, useEffect } from "react"
 import Template1 from "../../lib/templates/template1"
 
-const UserCard = ({setShowQR, setShowUpdate}: any) => {
-    const [userDetails, setUserDetails] = useState({
-        name: "",
-        email: "",
-        type: "",
-    })
-
-    const [cardInfo, setCardInfo] = useState({
-        profession: "",
-        organisation: "",
-        firmType: "",
-        contactNo: "",
-        socials: [],
-    })
-    
-    useEffect(()=>{
-        AccountAPI.getUserInformation()
-        .then((res: any) => {
-            if(res.total==0) router.push('/signup')
-            const data = res.documents[0]
-            setUserDetails((prev: any) => ({
-                ...prev,
-                name: data.name,
-                email: data.email,
-                type: data.type,
-            }))
-        })
-
-        AccountAPI.fetchingProfile()
-        .then((res: any) => {
-            const data = res.documents[0]
-            setCardInfo((prev: any) => ({
-                ...prev,
-                profession: data.profession,
-                organisation: data.organisation,
-                firmType: data.firmType,
-                contactNo: data.contactNo,
-                socials: data.socials,
-            }))
-        })
-    },[])
+const UserCard = ({
+    setShowQR, 
+    setShowUpdate, 
+    userDetails, 
+    cardInfo
+}: any) => {
 
     return (
         <div

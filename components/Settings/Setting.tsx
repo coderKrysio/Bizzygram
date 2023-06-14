@@ -48,14 +48,14 @@ const Setting = ({
             <div
             className='grid grid-cols-1 ml-3'
             >
-                <button
+                {/* <button
                 className={btnStyle}
                 >-&nbsp;&nbsp;Change Profile</button>
 
                 <button
                 className={btnStyle}
                 onClick={() => updatePanel("Card")}
-                >-&nbsp;&nbsp;Update Card</button>
+                >-&nbsp;&nbsp;Update Card</button> */}
 
                 <button
                 className={btnStyle}
@@ -69,10 +69,12 @@ const Setting = ({
 
                 <button
                 className={btnStyle}
+                onClick={() => window.open("https://github.com/coderKrysio/Bizzygram","_blank")}
                 >-&nbsp;&nbsp;Github Repo</button>
 
                 <button
                 className={btnStyle}
+                onClick={() => window.open("https://github.com/coderKrysio/Bizzygram","_blank")}
                 >-&nbsp;&nbsp;Blog</button>
             </div>
 
