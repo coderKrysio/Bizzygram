@@ -38,7 +38,7 @@ const UpdateCard = ({
             </div>
 
             <div className="flex flex-col gap-[35px] overflow-scroll overflow-x-hidden max-[580px]:gap-[20px]">
-                {cardInfo.socials.length != 0 && <Themes userDetails={userDetails} cardInfo={cardInfo} />}
+                <Themes userDetails={userDetails} cardInfo={cardInfo} />
                 <ColorPalette />
 
                 <div className="min-[580px]:hidden flex gap-[30px] justify-center items-center">

@@ -161,6 +161,8 @@ const UserProfile = () => {
                         setShowUserCard,
                         setShowUpdateCard,
                         setShowUpdate,
+                        userDetails,
+                        cardInfo,
                     }}/>}
 
                     {showHelp && <Help />}
