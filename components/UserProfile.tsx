@@ -42,10 +42,6 @@ const UserProfile = () => {
         socials: [],
     })
 
-    const updateProfile = () => {
-        AccountAPI.updatingProfile(cardInfo)
-    }
-
     useEffect(()=>{
         AccountAPI.userInitials()
         .then((res: any) => setProfilePhoto(res))
@@ -80,11 +76,11 @@ const UserProfile = () => {
 
     useEffect(() => {
         if(showUpdate) {
-            <UpdateCard 
-                setShowUserCard={setShowUserCard}
-                setShowUpdateCard={setShowUpdateCard}
-                setShowUpdate={setShowUpdate}
-            />
+            <UpdateCard {...{
+                setShowUserCard,
+                setShowUpdateCard,
+                setShowUpdate,
+            }}/>
         }
     },[showUpdate])
 
@@ -92,22 +88,22 @@ const UserProfile = () => {
         <div 
         className="bg-[#f3fbfb] text-[#272343] flex w-screen h-screen overflow-hidden"
         >
-            <Navbar
-                profileIcon={profileIcon}
-                setScannerModal={setScannerModal}
-                setProfileModal={setProfileModal}
-            />
+            <Navbar {...{
+                profileIcon,
+                setScannerModal,
+                setProfileModal,
+            }}/>
 
-            {scannerModal && <ScannerModal 
-                setScannerModal={setScannerModal}
-            />}
+            {scannerModal && <ScannerModal {...{
+                setScannerModal
+            }}/>}
 
-            {profileModal && <ProfileModal
-                setShowProfile={setShowProfile}
-                setShowConnections={setShowConnections}
-                setShowUserCard={setShowUserCard}
-                setShowSetting={setShowSetting}
-            />}
+            {profileModal && <ProfileModal {...{
+                setShowProfile,
+                setShowConnections,
+                setShowUserCard,
+                setShowSetting
+            }}/>}
 
             <SideNavigation {...{
                 showProfile,
@@ -127,51 +123,56 @@ const UserProfile = () => {
             }}/>
 
             {showQR ? <QRCode /> : 
-                showUpdate ? <UpdateCard 
-                    setShowUserCard={setShowUserCard}
-                    setShowUpdateCard={setShowUpdateCard}
-                    setShowUpdate={setShowUpdate}
-                /> :
+                showUpdate ? <UpdateCard {...{
+                    setShowUserCard,
+                    setShowUpdateCard,
+                    setShowUpdate
+                }}/> :
                 <>
                     {showProfile && <ProfilePanel />}
+
                     {showConnections && <Connections />}
-                    {showUserCard && <UserCard 
-                        setShowQR={setShowQR} 
-                        setShowUpdate={setShowUpdate}
-                    />}
-                    {showUpdateCard && <UpdateCard
-                        setShowUserCard={setShowUserCard}
-                        setShowUpdateCard={setShowUpdateCard}
-                        setShowUpdate={setShowUpdate}
-                    />}
+
+                    {showUserCard && <UserCard {...{
+                        setShowQR,
+                        setShowUpdate,
+                    }}/>}
+
+                    {showUpdateCard && <UpdateCard {...{
+                        setShowUserCard,
+                        setShowUpdateCard,
+                        setShowUpdate,
+                    }}/>}
+
                     {showHelp && <Help />}
-                    {showSetting && <Setting
-                        setShowConnections={setShowConnections}
-                        setShowProfile={setShowProfile}
-                        setShowUserCard={setShowUserCard}
-                        setShowQR={setShowQR}
-                        setShowUpdateCard={setShowUpdateCard}
-                        setShowSetting={setShowSetting}
-                        setShowHelp={setShowHelp}
-                        setProfileModal={setProfileModal}
-                    />}
+
+                    {showSetting && <Setting {...{
+                        setShowConnections,
+                        setShowProfile,
+                        setShowUserCard,
+                        setShowQR,
+                        setShowUpdateCard,
+                        setShowSetting,
+                        setShowHelp,
+                        setProfileModal,
+                    }}/>}
 
                 </>
             }            
 
-            <LowerNavigation
-                showProfile={showProfile}
-                setShowProfile={setShowProfile}
-                showConnections={showConnections}
-                setShowConnections={setShowConnections}
-                showUserCard={showUserCard}
-                setShowUserCard={setShowUserCard}
-                showSetting={showSetting}
-                setShowSetting={setShowSetting}
-                setShowQR={setShowQR}
-                setShowUpdate={setShowUpdate}
-                setProfileModal={setProfileModal}
-            />
+            <LowerNavigation {...{
+                showProfile,
+                setShowProfile,
+                showConnections,
+                setShowConnections,
+                showUserCard,
+                setShowUserCard,
+                showSetting,
+                setShowSetting,
+                setShowQR,
+                setShowUpdate,
+                setProfileModal,
+            }}/>
         </div>
     )
 }
