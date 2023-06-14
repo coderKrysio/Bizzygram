@@ -25,8 +25,9 @@ const LogInMain = ({details, setDetails, userNo, setUserNo, handleGoogleSignUp}:
             AccountAPI.getAccount()
             .then((res: any) => {
                 getUserAccountDetails(res)
+                console.log(res)
             })
-            {router.push(`/profile/${details.userId}`)}
+            // {router.push(`/profile/${details.userId}`)}
         })
         .catch((err: any) => {
             handleLogInError(err)

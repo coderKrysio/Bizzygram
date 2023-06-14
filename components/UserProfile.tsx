@@ -15,6 +15,7 @@ import { AccountAPI } from '@/lib/accountapi'
 import { useRouter } from 'next/navigation'
 
 const UserProfile = () => {
+    const router = useRouter();
     const [showProfile, setShowProfile] = useState(false)
     const [showConnections, setShowConnections] = useState(true)
     const [showUserCard, setShowUserCard] = useState(false)
@@ -26,8 +27,8 @@ const UserProfile = () => {
     const [profileModal, setProfileModal] = useState(false)
     const [scannerModal, setScannerModal] = useState(false)
     const [profileIcon, setProfileIcon] = useState(true)
-    const router = useRouter()
     const [profilePhoto, setProfilePhoto] = useState();
+    const [qrCode, setQRCode] = useState();
     const [userDetails, setUserDetails] = useState({
         name: "",
         email: "",
@@ -43,9 +44,6 @@ const UserProfile = () => {
     })
 
     useEffect(()=>{
-        AccountAPI.userInitials()
-        .then((res: any) => setProfilePhoto(res))
-
         AccountAPI.getUserInformation()
         .then((res: any) => {
             if(res.total==0) router.push('/signup')
@@ -56,6 +54,9 @@ const UserProfile = () => {
                 email: data.email,
                 type: data.type,
             }))
+            AccountAPI.userInitials(data.name).then((res: any) => {
+                console.log(res, "pp")
+            })
         })
 
         AccountAPI.fetchingProfile()
@@ -72,6 +73,9 @@ const UserProfile = () => {
                 }))
             }
         })
+
+        AccountAPI.userQRCode()
+        .then((res: any) => setQRCode(res))
     },[])
 
     useEffect(() => {
@@ -126,14 +130,23 @@ const UserProfile = () => {
                 userDetails,
             }}/>
 
-            {showQR ? <QRCode /> : 
+            {showQR ? <QRCode {...{
+                qrCode,
+            }}/> : 
                 showUpdate ? <UpdateCard {...{
                     setShowUserCard,
                     setShowUpdateCard,
-                    setShowUpdate
+                    setShowUpdate,
+                    userDetails,
+                    cardInfo,
                 }}/> :
                 <>
-                    {showProfile && <ProfilePanel />}
+                    {showProfile && <ProfilePanel {...{
+                        profilePhoto,
+                        userDetails,
+                        cardInfo,
+                        setCardInfo,
+                    }}/>}
 
                     {showConnections && <Connections />}
 

@@ -12,7 +12,6 @@ const Profile = () => {
     const [user, setUser] = useState(null)
     const [profileUser, setProfileUser] = useState(-1);
     const [profileIcon, setProfileIcon] = useState(false)
-    const [QRCode, setQRCode] = useState();
     const [profileDetails, setProfileDetails] = useState({
         userId: "",
         type: "",
@@ -42,8 +41,6 @@ const Profile = () => {
 
     useEffect(() => {
         if(profileUser==1) {
-            // AccountAPI.userQRCode()
-            // .then((res: any) => setQRCode(res))
             setProfileIcon(true)
         } 
     },[profileUser])
@@ -51,7 +48,8 @@ const Profile = () => {
     return (
         <>            
             {UserId != "" ?         
-                profileUser == 0 ? 
+                <>
+                {profileUser == 0 ? 
                     <div className='flex w-screen h-screen overflow-hidden'>
                         <div className='flex flex-col h-screen w-full pt-[60px]'>
                             <Navbar profileIcon={profileIcon} />
@@ -59,7 +57,8 @@ const Profile = () => {
                         </div>
                     </div>
                     : 
-                <UserProfile /> :
+                    <UserProfile />
+                }</>:
                 router.push("/")
             }
         </>

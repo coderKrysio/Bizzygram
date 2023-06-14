@@ -168,8 +168,8 @@ export const AccountAPI = {
         )
     },
 
-    userInitials: async() => {
-        return avatars.getInitials().href
+    userInitials: async(userName: any) => {
+        return avatars.getInitials(userName).href
     },
 
     userQRCode: async() => {

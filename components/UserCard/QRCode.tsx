@@ -1,4 +1,4 @@
-const QRCode = () => {
+const QRCode = ({qrCode}: any) => {
     return (
         <div
         className='flex flex-col gap-[25px] h-screen w-full pt-[85px] p-7 ml-3 max-[1070px]:pb-[70px] max-[470px]:ml-0'
