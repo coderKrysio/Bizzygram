@@ -54,7 +54,6 @@ export const AccountAPI = {
             userId: params.$id,
             email: params.email,
             type: TypeValue,
-            createdUserAt: params.$createdAt,
         }, 
             [
                 Permission.write(Role.any()),
@@ -147,6 +146,14 @@ export const AccountAPI = {
             ).then((response: any) => { console.log(response, "updated profile")
             }).catch((err: any) => console.log(err))
         }).catch((err: any) => console.log(err))
+    },
+
+    getCardUser: async(cardId: any) => {
+        return await database.listDocuments(DATABASE_ID, USER_COLLECTION_ID, 
+            [
+                Query.equal("userId", [cardId])
+            ]
+        )
     },
 
     userInitials: async() => {

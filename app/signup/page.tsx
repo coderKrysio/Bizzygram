@@ -40,23 +40,31 @@ export default function SignUp() {
     const handleEmailSignUp = () => {
         AccountAPI.emailSignUp(details)
         .then((res: any) => {
-            handleCreateDocument(res)
-            handleSigning()
+            console.log(res)
+            handleSigning(res)            
+            // router.push(`/profile/${details.userId}`)
         }).catch((err: any) => console.log(err))        
     }
 
     const handleCreateDocument = (res: any) => {
-        AccountAPI.createUserDocument(res)
-        .then(() => {
-            setDetails((prev: any) => ({
-                ...prev,
-                userId: res.$id,
-            }))
-        }).catch((err: any) => console.log(err))
+        console.log(res, "in doc creation")
+        // AccountAPI.createUserDocument(res)
+        // .then(() => {
+        //     console.log("created")
+        //     // setDetails((prev: any) => ({
+        //     //     ...prev,
+        //     //     userId: res.$id,
+        //     // }))
+        // }).catch((err: any) => console.log(err))
     }
 
-    const handleSigning = () => {
+    const handleSigning = (docDetails: any) => {
+        console.log(docDetails, "docdetails")
         AccountAPI.emailLogIn(details)
+        .then((res: any) => {
+            console.log(res, "logging in")
+            handleCreateDocument(docDetails)
+        })
         .catch((err: any) => {
             console.log(err)
         });
@@ -80,7 +88,7 @@ export default function SignUp() {
     return (
         <>
             <Navbar profileIcon={profileIcon} />
-            {user ? 
+            {user && details.userId != "" ? 
                 <>
                     {router.push(`/profile/${details.userId}`)}
                 </>
