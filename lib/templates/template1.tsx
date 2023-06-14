@@ -105,14 +105,14 @@ const Template1 = ({scale, userDetails, cardInfo}: any) => {
                     />
                 </Link>
 
-                <Link 
+                {cardInfo.contactNo !="" && <Link 
                 target="_blank"
                 href={`tel:${cardInfo.contactNo}`}>
                     <img
                     width={"25px"}
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686354043/phone-call_nad0u4.png"
                     />
-                </Link>
+                </Link>}
             </div>
         </div>
     )
