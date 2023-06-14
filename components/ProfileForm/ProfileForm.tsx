@@ -25,7 +25,7 @@ const ProfileForm = () => {
             </div>
 
             <div
-            className="flex h-[500px] items-start overflow-scroll justify-center p-1"
+            className="flex h-[500px] items-start justify-center p-1 overflow-scroll"
             >{!openSocials ? <CardInfo setOpenSocials={setOpenSocials} /> :
             <SocialsInfo />}</div>
         </div>

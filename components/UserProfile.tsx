@@ -11,6 +11,8 @@ import LowerNavigation from './Navigation/LowerNavigation'
 import Setting from './Settings/Setting'
 import ProfileModal from './Navigation/ProfileModal'
 import ScannerModal from './Navigation/ScannerModal'
+import { AccountAPI } from '@/lib/accountapi'
+import { useRouter } from 'next/navigation'
 
 const UserProfile = () => {
     const [showProfile, setShowProfile] = useState(false)
@@ -24,6 +26,57 @@ const UserProfile = () => {
     const [profileModal, setProfileModal] = useState(false)
     const [scannerModal, setScannerModal] = useState(false)
     const [profileIcon, setProfileIcon] = useState(true)
+    const router = useRouter()
+    const [profilePhoto, setProfilePhoto] = useState();
+    const [userDetails, setUserDetails] = useState({
+        name: "",
+        email: "",
+        type: "",
+    })
+
+    const [cardInfo, setCardInfo] = useState({
+        profession: "",
+        organisation: "",
+        firmType: "",
+        contactNo: "",
+        socials: [],
+    })
+
+    const updateProfile = () => {
+        AccountAPI.updatingProfile(cardInfo)
+    }
+
+    useEffect(()=>{
+        AccountAPI.userInitials()
+        .then((res: any) => setProfilePhoto(res))
+
+        AccountAPI.getUserInformation()
+        .then((res: any) => {
+            if(res.total==0) router.push('/signup')
+            const data = res.documents[0]
+            setUserDetails((prev: any) => ({
+                ...prev,
+                name: data.name,
+                email: data.email,
+                type: data.type,
+            }))
+        })
+
+        AccountAPI.fetchingProfile()
+        .then((res: any) => {
+            if(res.total != 0) {
+                const data = res.documents[0]
+                setCardInfo((prev: any) => ({
+                    ...prev,
+                    profession: data.profession,
+                    organisation: data.organisation,
+                    firmType: data.firmType,
+                    contactNo: data.contactNo,
+                    socials: data.socials,
+                }))
+            }
+        })
+    },[])
 
     useEffect(() => {
         if(showUpdate) {
@@ -56,20 +109,22 @@ const UserProfile = () => {
                 setShowSetting={setShowSetting}
             />}
 
-            <SideNavigation
-            showProfile={showProfile}
-            setShowProfile={setShowProfile}
-            showConnections={showConnections}
-            setShowConnections={setShowConnections}
-            showUserCard={showUserCard}
-            setShowUserCard={setShowUserCard}
-            showUpdateCard={showUpdateCard}
-            setShowUpdateCard={setShowUpdateCard}
-            setShowSetting={setShowSetting}
-            setShowHelp={setShowHelp}
-            setShowQR={setShowQR}
-            setProfileModal={setProfileModal}
-            />
+            <SideNavigation {...{
+                showProfile,
+                setShowProfile,
+                showConnections,
+                setShowConnections,
+                showUserCard,
+                setShowUserCard,
+                showUpdateCard,
+                setShowUpdateCard,
+                setShowSetting,
+                setShowHelp,
+                setShowQR,
+                setProfileModal,
+                profilePhoto,
+                userDetails,
+            }}/>
 
             {showQR ? <QRCode /> : 
                 showUpdate ? <UpdateCard 

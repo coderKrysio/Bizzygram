@@ -15,18 +15,14 @@ const SideNavigation = ({
     setShowHelp,
     setShowQR,
     setProfileModal,
+    profilePhoto,
+    userDetails,
 }: any) => {
 
     const btnDesign = 'text-[#272343] text-xl font-semibold tracking-wide w-full py-3 rounded-xl hover:bg-[#ffd803] hover:border-0'
 
     const selectedBtn = "font-semibold tracking-wide w-full py-3 rounded-xl bg-[#ffd803] text-[#272343] text-xl focus:outline-none"
-    const [profilePhoto, setProfilePhoto] = useState();
     const router = useRouter()
-    const [userDetails, setUserDetails] = useState({
-        name: "",
-        email: "",
-        type: "",
-    })
 
     const updatePanel = (arg: any) => {
         setProfileModal(false)
@@ -81,23 +77,6 @@ const SideNavigation = ({
             setShowHelp(true)        
         }
     }
-
-    useEffect(() => {
-        AccountAPI.userInitials()
-        .then((res: any) => setProfilePhoto(res))
-
-        AccountAPI.getUserInformation()
-        .then((res: any) => {
-            if(res.total==0) router.push('/signup')
-            const data = res.documents[0]
-            setUserDetails((prev: any) => ({
-                ...prev,
-                name: data.name,
-                email: data.email,
-                type: data.type,
-            }))
-        })
-    },[])
     
     return (
         <div 

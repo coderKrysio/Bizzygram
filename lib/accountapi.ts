@@ -1,4 +1,5 @@
 import { Account, Avatars, Client, Databases, ID, Permission, Query, Role } from "appwrite";
+import { useRouter } from "next/navigation";
 
 export const APPWRITE_PROJECT_ID: string = "648088e725ae5e39d699";
 export const APPWRITE_ENDPOINT: string = "https://cloud.appwrite.io/v1";
@@ -119,7 +120,8 @@ export const AccountAPI = {
             database.updateDocument(DATABASE_ID, PROFILE_COLLECTION_ID, res.documents[0].$id, {
                 socials: userSocials,
             }
-            ).then((response: any) => { console.log(response, "updated")
+            ).then((response: any) => { 
+                useRouter().push(response.userId)
             }).catch((err: any) => console.log(err))
         }).catch((err: any) => console.log(err))
     },
