@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 const Profile = () => {
     const router = useRouter();
     const [user, setUser] = useState(null)
-    const [profileUser, setProfileUser] = useState(-1);
+    const [profileUser, setProfileUser] = useState(0);
     const [profileIcon, setProfileIcon] = useState(false)
     const [profileDetails, setProfileDetails] = useState({
         userId: "",
@@ -37,7 +37,7 @@ const Profile = () => {
 
     useEffect(() => {
         getSession()
-    }, [Client_Account])
+    }, [])
 
     useEffect(() => {
         if(profileUser==1) {

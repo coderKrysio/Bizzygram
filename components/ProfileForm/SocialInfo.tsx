@@ -9,6 +9,7 @@ const SocialsInfo = () => {
 
     const handleNextBtn = () => {       
         AccountAPI.updatingSocials(links)
+        router.push('/login')
     }
 
     return (
