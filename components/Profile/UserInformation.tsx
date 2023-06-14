@@ -13,30 +13,30 @@ const UserInformation = ({userDetails}: any) => {
             className='flex flex-col p-5 justify-center'
             >
                 <div className='grid grid-cols-[150px_minmax(150px,_300px)] items-center gap-[15px] max-[550px]:grid-cols-1 max-[550px]:gap-[5px]'>
-                {TypeValue == "Individual" ? <>
-                    <p
-                    className="text-lg font-medium"
-                    >Name</p>
-    
-                    <input 
-                    className={inputStyle}
-                    type="text"
-                    value={userDetails.name}
-                    readOnly
-                    />
-                </> : <>
-    
-                    <p
-                    className="text-lg font-medium"
-                    >Firm Name</p>
-    
-                    <input 
-                    className={inputStyle}
-                    type="text"
-                    value={userDetails.name}
-                    readOnly
-                    />
-                </>}
+                    {TypeValue == "Individual" ? <>
+                        <p
+                        className="text-lg font-medium"
+                        >Name</p>
+        
+                        <input 
+                        className={inputStyle}
+                        type="text"
+                        value={userDetails.name}
+                        readOnly
+                        />
+                    </> : <>
+        
+                        <p
+                        className="text-lg font-medium"
+                        >Firm Name</p>
+        
+                        <input 
+                        className={inputStyle}
+                        type="text"
+                        value={userDetails.name}
+                        readOnly
+                        />
+                    </>}
     
                     <p
                     className="text-lg font-medium"
