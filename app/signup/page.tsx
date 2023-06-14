@@ -106,7 +106,7 @@ export default function SignUp() {
                         handleGoogleSignUp={handleGoogleSignUp} />
                     }
                     <p
-                    className="text-center text-md font-medium mt-4"
+                    className="text-center text-md font-medium mb-8"
                     >Already have an account. <Link href={'/login'} className='text-[#5fc9f8] underline'>Log In</Link> now</p>
                 </div>
             </div>}

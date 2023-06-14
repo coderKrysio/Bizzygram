@@ -1,8 +1,10 @@
 import { AccountAPI } from '@/lib/accountapi';
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 
 const Navbar = ({profileIcon, setScannerModal, setProfileModal}: any) => {
     const [profilePhoto, setProfilePhoto] = useState();
+    const router = useRouter()
     
     useEffect(() => {
         AccountAPI.userInitials()
@@ -14,7 +16,8 @@ const Navbar = ({profileIcon, setScannerModal, setProfileModal}: any) => {
         className='fixed left-0 top-0 flex justify-center items-center w-screen h-[60px] z-10 border-b-[3px] border-slate-300 bg-[#bae8e8] max-[550px]:justify-start max-[1070px]:bg-[#ffe65b]'
         >
             <h1
-            className='text-2xl tracking-wide font-bold max-[550px]:ml-4'
+            className='text-2xl tracking-wide font-bold max-[550px]:ml-4 hover:cursor-pointer'
+            onClick={() => router.push('/')}
             >Bizzygram</h1>
 
             <button
