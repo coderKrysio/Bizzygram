@@ -53,7 +53,7 @@ const SignUpMain = ({details, setDetails, userNo, setUserNo, setShowUserType, ha
 
     return (
         <div 
-        className="flex flex-col p-5 w-[350px] mt-[30px]"
+        className="flex flex-col p-5 w-[350px]"
         >
             <div className='h-[30px] mb-5'>
                 <button 
@@ -147,7 +147,7 @@ const SignUpMain = ({details, setDetails, userNo, setUserNo, setShowUserType, ha
                     </p>}
 
                     <button 
-                    className='w-fit border-2 font-medium border-white rounded-md px-9 py-3 m-auto mb-3 mt-3 hover:bg-white hover:text-[#323c51] hover:font-semibold'
+                    className='w-fit border-2 font-semibold border-[#17242a] rounded-md px-7 py-2 m-auto mb-5 mt-3 hover:bg-[#ffd803] hover:border-transparent'
                     onClick={handleEmailSignUp}>SignUp</button>
                 </div>}        
             </div>
