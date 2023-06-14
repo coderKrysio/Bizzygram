@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 const SideNavigation = ({
     showProfile, 
     setShowProfile, 
@@ -77,8 +79,11 @@ const SideNavigation = ({
             >
                 <div 
                 className='w-[100px] h-[100px] rounded-[50px] bg-[#fff] overflow-hidden'
-                ><img 
+                ><Image 
                     src={profilePhoto}
+                    alt="Profile"
+                    width={100}
+                    height={100}
                 /></div>
                 <p
                 className='font-semibold text-2xl tracking-wide text-center mb-3'
@@ -120,20 +125,22 @@ const SideNavigation = ({
                 <button
                 className="font-semibold"
                 onClick={() => updatePanel("Settings")}
-                ><img 
+                ><Image 
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686057881/gear_2_ivskth.png"
                     title="Settings"
-                    width={"25px"}
+                    width={25}
+                    height={25}
                     alt="Settings"
                 /></button>
 
                 <button
                 className="font-semibold"
                 onClick={() => updatePanel("Help")}
-                ><img 
+                ><Image 
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686068779/help-web-button_ehv5qe.png"
                     title="Help"
-                    width={"25px"}
+                    width={25}
+                    height={25}
                     alt="Help"
                 /></button>
             </div>            

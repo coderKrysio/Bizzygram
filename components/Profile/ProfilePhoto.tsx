@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 const ProfilePhoto = ({
     profilePhoto, 
     userDetails
@@ -8,9 +10,11 @@ const ProfilePhoto = ({
         >
             <div 
             className="w-[100px] h-[100px] bg-[#fff] rounded-[50px] overflow-hidden"
-            ><img 
+            ><Image 
                 src={profilePhoto}
                 alt="Profile"
+                width={100}
+                height={100}
             /></div>
     
             <div>

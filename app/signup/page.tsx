@@ -77,6 +77,7 @@ export default function SignUp() {
 
     useEffect(() => {
         getSession();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [Client_Account])  
 
     return (

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import CardInfo from "./CardInfo"
 import SocialsInfo from "./SocialInfo"
+import Image from "next/image";
 
 const ProfileForm = () => {
     const [openSocials, setOpenSocials] = useState(false);
@@ -11,9 +12,11 @@ const ProfileForm = () => {
                 {openSocials && <button 
                 className='w-fit ml-0'
                 onClick={() => setOpenSocials(false)}
-                ><img 
+                ><Image 
                     src='https://res.cloudinary.com/db7nrltsv/image/upload/v1686363947/left-arrow_lmf6jf.png' 
-                    width={"25px"} 
+                    alt="Back"
+                    width={25} 
+                    height={25}
                 /></button>}
             </div>
 

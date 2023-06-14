@@ -1,5 +1,6 @@
 import { AccountAPI } from '@/lib/accountapi';
 import { UserAPI } from '@/lib/userapi';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -82,6 +83,7 @@ const LogInMain = ({details, setDetails, userNo, setUserNo, handleGoogleSignUp}:
     
     useEffect(() => {
         UserAPI.searchUser(details, setUserNo) 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [nextBtn])
 
     return (
@@ -92,9 +94,10 @@ const LogInMain = ({details, setDetails, userNo, setUserNo, handleGoogleSignUp}:
                 {showField && <button 
                 className='w-fit ml-0'
                 onClick={() => setShowField(false)}
-                ><img 
+                ><Image 
                     src='https://res.cloudinary.com/db7nrltsv/image/upload/v1686363947/left-arrow_lmf6jf.png' 
-                    width={"25px"} 
+                    width={25} 
+                    height={25}
                     alt='Back'
                 /></button>}
             </div>
@@ -108,10 +111,11 @@ const LogInMain = ({details, setDetails, userNo, setUserNo, handleGoogleSignUp}:
                 className='flex justify-center items-center border-2 font-semibold border-[#17242a] rounded-md p-3 m-2 mb-5 hover:bg-white hover:font-bold'
                 onClick={handleGoogleSignUp}
                 >
-                    <img 
+                    <Image 
                     className='mr-4'
                     src='https://res.cloudinary.com/db7nrltsv/image/upload/v1685734638/search_bi0uwu.png' 
-                    width={'25px'}
+                    width={25}
+                    height={25}
                     alt='Google'
                     />
                     Continue with Google
@@ -157,9 +161,10 @@ const LogInMain = ({details, setDetails, userNo, setUserNo, handleGoogleSignUp}:
                             <button
                             className='w-fit absolute left-[90%] translate-x-[-20%] flex items-center'
                             onClick={() => setShow((prev: any) => !prev)}
-                            ><img 
+                            ><Image 
                                 src={btnIcon} 
-                                width={"25px"}
+                                width={25}
+                                height={25}
                                 alt='Show Password'
                             /></button>
                         </form>
@@ -181,8 +186,8 @@ const LogInMain = ({details, setDetails, userNo, setUserNo, handleGoogleSignUp}:
                 >Log In</button>}
 
                 <p
-                className="text-center text-md font-medium mt-2"
-                >Don't have an account. <Link 
+                className='text-center text-md font-medium mt-2'
+                >Don&#39;t have an account. <Link 
                 href={'/signup'} 
                 className='text-[##27b6f6] underline'
                 >SignUp</Link> now</p>

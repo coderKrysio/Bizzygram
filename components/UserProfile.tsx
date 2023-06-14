@@ -76,6 +76,7 @@ const UserProfile = () => {
 
         AccountAPI.userQRCode()
         .then((res: any) => setQRCode(res))
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     useEffect(() => {

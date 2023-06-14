@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { UserAPI } from "@/lib/userapi";
+import Image from "next/image";
 
 const SignUpMain = ({details, setDetails, userNo, setUserNo, setShowUserType, handleEmailSignUp, handleGoogleSignUp}: any) => {
     const [showOptions, setShowOptions] = useState(false);
@@ -49,6 +50,7 @@ const SignUpMain = ({details, setDetails, userNo, setUserNo, setShowUserType, ha
 
     useEffect(() => {
         UserAPI.searchUser(details, setUserNo) 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [details.email])
 
     return (
@@ -59,9 +61,10 @@ const SignUpMain = ({details, setDetails, userNo, setUserNo, setShowUserType, ha
                 <button 
                 className='w-fit ml-0'
                 onClick={handleBackBtn}
-                ><img 
+                ><Image 
                     src='https://res.cloudinary.com/db7nrltsv/image/upload/v1686363947/left-arrow_lmf6jf.png' 
-                    width={"25px"} 
+                    width={25} 
+                    height={25}
                     alt="Back"
                 /></button>
             </div>
@@ -75,10 +78,11 @@ const SignUpMain = ({details, setDetails, userNo, setUserNo, setShowUserType, ha
                 className='flex justify-center items-center border-2 font-semibold border-[#17242a] rounded-md p-3 m-2 mb-5 hover:bg-white hover:font-bold'
                 onClick={handleGoogleSignUp}
                 >
-                    <img 
+                    <Image 
                     className='mr-4'
                     src='https://res.cloudinary.com/db7nrltsv/image/upload/v1685734638/search_bi0uwu.png' 
-                    width={'25px'}
+                    width={25}
+                    height={25}
                     alt="Google"
                     />
                     Continue with Google
@@ -143,9 +147,10 @@ const SignUpMain = ({details, setDetails, userNo, setUserNo, setShowUserType, ha
                             <button
                             className='w-fit absolute left-[90%] translate-x-[-20%] flex items-center'
                             onClick={() => setShow(prev => !prev)}
-                            ><img 
+                            ><Image 
                                 src={btnIcon} 
-                                width={"25px"}
+                                width={25}
+                                height={25}
                                 alt="Show Password"
                             /></button>
                         </form>

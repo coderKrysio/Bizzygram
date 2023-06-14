@@ -3,6 +3,7 @@ import CardInformation from './CardInformation'
 import SocialInformation from './SocialInformation'
 import ProfilePhoto from './ProfilePhoto'
 import { AccountAPI } from '@/lib/accountapi'
+import Image from 'next/image'
 
 const ProfilePanel = ({
     profilePhoto,
@@ -43,9 +44,11 @@ const ProfilePanel = ({
                 >
                     <div
                     className='w-[200px] h-[200px] rounded-[100px] bg-[#fff] overflow-hidden'
-                    ><img 
+                    ><Image 
                         src={profilePhoto}
                         alt='Profile'
+                        width={200}
+                        height={200}
                     /></div>
 
                     <button
