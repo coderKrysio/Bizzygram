@@ -31,7 +31,7 @@ const UserCard = ({
                 >Get QR Code</button>
 
                 <button
-                className='min-[1070px]:hidden text-xl w-fit font-semibold tracking-wide border-2 border-[#272343] m-4 px-7 py-2 rounded-xl hover:bg-[#ffd803] hover:border-[#ffd803]'
+                className='min-[1070px]:hidden text-xl w-fit font-semibold tracking-wide border-2 border-[#272343] m-4 mt-0 px-7 py-2 rounded-xl hover:bg-[#ffd803] hover:border-[#ffd803]'
                 onClick={() => setShowUpdate(true)}
                 >Update</button>
             </div>

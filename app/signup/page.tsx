@@ -40,28 +40,26 @@ export default function SignUp() {
     const handleEmailSignUp = () => {
         AccountAPI.emailSignUp(details)
         .then((res: any) => {
-            handleSigning(res)     
-            console.log(res)       
+            handleSigning(res)
+                  
         }).catch((err: any) => console.log(err))        
     }
 
     const handleCreateDocument = (res: any) => {
         AccountAPI.createUserDocument(res)
         .then(() => {
-            console.log("created")
             setDetails((prev: any) => ({
                 ...prev,
                 userId: res.$id,
             }))
             localStorage.setItem("userId",res.$id)
             localStorage.setItem("type",res.type)
-            router.push(`/profile/${res.$id}`)
         }).catch((err: any) => console.log(err))
     }
 
     const handleSigning = (docDetails: any) => {
         AccountAPI.emailLogIn(details)
-        .then((res: any) => {
+        .then(() => {
             handleCreateDocument(docDetails)
         })
         .catch((err: any) => {
