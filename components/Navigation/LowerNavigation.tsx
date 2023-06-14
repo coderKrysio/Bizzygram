@@ -56,7 +56,10 @@ const LowerNavigation = ({
             >
                 <img 
                 className="mb-1"
-                src={showConnections ? "https://res.cloudinary.com/db7nrltsv/image/upload/v1686057885/link_3_ja7wu9.png" : "https://res.cloudinary.com/db7nrltsv/image/upload/v1686049321/link_2_d2xsux.png"}
+                src={showConnections ? 
+                    "https://res.cloudinary.com/db7nrltsv/image/upload/v1686057885/link_3_ja7wu9.png" : 
+                    "https://res.cloudinary.com/db7nrltsv/image/upload/v1686049321/link_2_d2xsux.png"
+                }
                 width={"25px"}
                 />
                 Connections
@@ -68,7 +71,10 @@ const LowerNavigation = ({
             >
                 <img 
                 className="mb-1 scale-110"
-                src={showProfile ? "https://res.cloudinary.com/db7nrltsv/image/upload/v1686057882/user_5_dqcsci.png" : "https://res.cloudinary.com/db7nrltsv/image/upload/v1686047999/user_3_y0ugew.png"}
+                src={showProfile ? 
+                    "https://res.cloudinary.com/db7nrltsv/image/upload/v1686057882/user_5_dqcsci.png" : 
+                    "https://res.cloudinary.com/db7nrltsv/image/upload/v1686047999/user_3_y0ugew.png"
+                }
                 width={"25px"}
                 />
                 Profile
@@ -80,7 +86,10 @@ const LowerNavigation = ({
             >
                 <img 
                 className="mb-1 scale-[1.3]"
-                src={showUserCard ? "https://res.cloudinary.com/db7nrltsv/image/upload/v1686057883/credit-card_2_bfsabs.png" : "https://res.cloudinary.com/db7nrltsv/image/upload/v1686048101/credit-card_erbjpe.png"}
+                src={showUserCard ? 
+                    "https://res.cloudinary.com/db7nrltsv/image/upload/v1686057883/credit-card_2_bfsabs.png" : 
+                    "https://res.cloudinary.com/db7nrltsv/image/upload/v1686048101/credit-card_erbjpe.png"
+                }
                 width={"25px"}
                 />
                 Card
@@ -92,7 +101,10 @@ const LowerNavigation = ({
             >
                 <img 
                 className="mb-1 scale-105"
-                src={showSetting ? "https://res.cloudinary.com/db7nrltsv/image/upload/v1686057881/gear_2_ivskth.png" : "https://res.cloudinary.com/db7nrltsv/image/upload/v1686048212/gear_dndbea.png"}
+                src={showSetting ? 
+                    "https://res.cloudinary.com/db7nrltsv/image/upload/v1686057881/gear_2_ivskth.png" : 
+                    "https://res.cloudinary.com/db7nrltsv/image/upload/v1686048212/gear_dndbea.png"
+                }
                 width={"25px"}
                 />
                 Settings

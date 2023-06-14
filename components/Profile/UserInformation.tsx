@@ -1,6 +1,4 @@
-import { AccountAPI, Client_Account, TypeValue } from "@/lib/accountapi";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { TypeValue } from "@/lib/accountapi";
 
 const UserInformation = ({userDetails}: any) => {
     const inputStyle = "rounded-md border border-slate-300 py-1 px-3 text-lg mb-2 bg-[#bae8e8] text-[#272343] font-medium focus:outline-none focus:ring-[#272343] focus:ring-2 max-[550px]:mb-[20px]";
@@ -15,30 +13,30 @@ const UserInformation = ({userDetails}: any) => {
             className='flex flex-col p-5 justify-center'
             >
                 <div className='grid grid-cols-[150px_minmax(150px,_300px)] items-center gap-[15px] max-[550px]:grid-cols-1 max-[550px]:gap-[5px]'>
-                {TypeValue == "Individual" ? <>
-                    <p
-                    className="text-lg font-medium"
-                    >Name</p>
-    
-                    <input 
-                    className={inputStyle}
-                    type="text"
-                    value={userDetails.name}
-                    readOnly
-                    />
-                </> : <>
-    
-                    <p
-                    className="text-lg font-medium"
-                    >Firm Name</p>
-    
-                    <input 
-                    className={inputStyle}
-                    type="text"
-                    value={userDetails.name}
-                    readOnly
-                    />
-                </>}
+                    {TypeValue == "Individual" ? <>
+                        <p
+                        className="text-lg font-medium"
+                        >Name</p>
+        
+                        <input 
+                        className={inputStyle}
+                        type="text"
+                        value={userDetails.name}
+                        readOnly
+                        />
+                    </> : <>
+        
+                        <p
+                        className="text-lg font-medium"
+                        >Firm Name</p>
+        
+                        <input 
+                        className={inputStyle}
+                        type="text"
+                        value={userDetails.name}
+                        readOnly
+                        />
+                    </>}
     
                     <p
                     className="text-lg font-medium"

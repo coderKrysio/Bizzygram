@@ -1,12 +1,15 @@
 import { useEffect } from "react";
 
-const SocialInformation = ({cardInfo, setCardInfo}: any) => {
+const SocialInformation = ({
+    cardInfo, 
+    setCardInfo
+}: any) => {
+
     const inputStyle = "rounded-md border border-slate-300 py-1 px-3 text-lg mb-2 bg-[#bae8e8] text-[#272343] font-medium focus:outline-none focus:ring-[#272343] focus:ring-2 max-[550px]:mb-[20px]";
 
     const handleChange = (e: any, index: any) => {
         console.log(cardInfo.socials[index])
     }
-
   
     return (
         <div className="border-b-2 border-slate-300">

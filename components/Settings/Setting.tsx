@@ -11,6 +11,7 @@ const Setting = ({
     setShowHelp,
     setProfileModal
 }: any) => {
+    
     const btnStyle = 'text-2xl text-left py-3 font-medium'
     const router = useRouter()
 

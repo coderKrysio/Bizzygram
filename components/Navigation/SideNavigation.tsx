@@ -20,6 +20,7 @@ const SideNavigation = ({
     const selectedBtn = "font-semibold tracking-wide w-full py-3 rounded-xl bg-[#ffd803] text-[#272343] text-xl focus:outline-none"
 
     const updatePanel = (arg: any) => {
+        setShowQR(false)
         setProfileModal(false)
         if(arg == "Connections") {
             setShowProfile(false)
@@ -27,7 +28,6 @@ const SideNavigation = ({
             setShowUpdateCard(false)
             setShowHelp(false)
             setShowSetting(false)
-            setShowQR(false)
             setShowConnections(true)
         } else if(arg == "Profile") {
             setShowConnections(false)
@@ -35,7 +35,6 @@ const SideNavigation = ({
             setShowUpdateCard(false)
             setShowHelp(false)
             setShowSetting(false)
-            setShowQR(false)
             setShowProfile(true)
         } else if(arg == "UserCard") {
             setShowConnections(false)
@@ -43,13 +42,11 @@ const SideNavigation = ({
             setShowUpdateCard(false)
             setShowHelp(false)
             setShowSetting(false)
-            setShowQR(false)
             setShowUserCard(true)
         } else if(arg == "UpdateCard") {
             setShowConnections(false)
             setShowProfile(false)
             setShowUserCard(false)
-            setShowQR(false)
             setShowSetting(false)
             setShowHelp(false)
             setShowUpdateCard(true)            
@@ -57,8 +54,7 @@ const SideNavigation = ({
             setShowConnections(false)
             setShowProfile(false)
             setShowUserCard(false)
-            setShowUpdateCard(false)  
-            setShowQR(false)  
+            setShowUpdateCard(false) 
             setShowSetting(false)
             setShowHelp(false)    
             setShowSetting(true)    
@@ -66,8 +62,7 @@ const SideNavigation = ({
             setShowConnections(false)
             setShowProfile(false)
             setShowUserCard(false)
-            setShowUpdateCard(false)  
-            setShowQR(false)  
+            setShowUpdateCard(false)
             setShowSetting(false)
             setShowHelp(true)        
         }

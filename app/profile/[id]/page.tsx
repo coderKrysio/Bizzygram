@@ -1,9 +1,8 @@
 "use client";
 import Navbar from '@/components/Navigation/Navbar';
 import ProfileForm from '@/components/ProfileForm/ProfileForm';
-import SocialsInfo from '@/components/ProfileForm/SocialInfo';
 import UserProfile from '@/components/UserProfile';
-import { AccountAPI, Client_Account, TypeValue, UserId } from '@/lib/accountapi';
+import { AccountAPI, TypeValue, UserId } from '@/lib/accountapi';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 

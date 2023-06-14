@@ -57,13 +57,13 @@ export default function Login() {
                             {router.push(`/profile/${details.userId}`)}
                         </>
                         : 
-                        <LogInMain 
-                            details={details}
-                            setDetails={setDetails}
-                            userNo={userNo}
-                            setUserNo={setUserNo}
-                            handleGoogleSignUp={handleGoogleSignUp}
-                        />
+                        <LogInMain {...{
+                            details,
+                            setDetails,
+                            userNo,
+                            setUserNo,
+                            handleGoogleSignUp,
+                        }}/>
                     }        
                 </div>
             </div>

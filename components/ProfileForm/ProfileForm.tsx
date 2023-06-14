@@ -11,7 +11,10 @@ const ProfileForm = () => {
                 {openSocials && <button 
                 className='w-fit ml-0'
                 onClick={() => setOpenSocials(false)}
-                ><img src='https://res.cloudinary.com/db7nrltsv/image/upload/v1686363947/left-arrow_lmf6jf.png' width={"25px"} /></button>}
+                ><img 
+                    src='https://res.cloudinary.com/db7nrltsv/image/upload/v1686363947/left-arrow_lmf6jf.png' 
+                    width={"25px"} 
+                /></button>}
             </div>
 
             <div className="flex flex-col justify-center items-center h-[80px] mb-5">
@@ -26,8 +29,10 @@ const ProfileForm = () => {
 
             <div
             className="flex h-[500px] items-start justify-center p-1 overflow-scroll"
-            >{!openSocials ? <CardInfo setOpenSocials={setOpenSocials} /> :
-            <SocialsInfo />}</div>
+            >
+                {!openSocials ? <CardInfo setOpenSocials={setOpenSocials} /> :
+                <SocialsInfo />}
+            </div>
         </div>
     )
 }

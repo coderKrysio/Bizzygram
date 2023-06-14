@@ -1,7 +1,6 @@
 import { AccountAPI } from '@/lib/accountapi';
 import { UserAPI } from '@/lib/userapi';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const LogInMain = ({details, setDetails, userNo, setUserNo, handleGoogleSignUp}: any) => {
@@ -12,7 +11,6 @@ const LogInMain = ({details, setDetails, userNo, setUserNo, handleGoogleSignUp}:
     const [showField, setShowField] = useState(false);
     const [show, setShow] = useState(false)
     const [nextBtn, setNextBtn] = useState(false);
-    const router = useRouter();
 
     const handleNextBtn = () => {
         setNextBtn((prev: any) => !prev)        
@@ -154,7 +152,10 @@ const LogInMain = ({details, setDetails, userNo, setUserNo, handleGoogleSignUp}:
                             <button
                             className='w-fit absolute left-[90%] translate-x-[-20%] flex items-center'
                             onClick={() => setShow((prev: any) => !prev)}
-                            ><img src={btnIcon} width={"25px"}/></button>
+                            ><img 
+                                src={btnIcon} 
+                                width={"25px"}
+                            /></button>
                         </form>
                     </>}
                 </div>
@@ -175,7 +176,10 @@ const LogInMain = ({details, setDetails, userNo, setUserNo, handleGoogleSignUp}:
 
                 <p
                 className="text-center text-md font-medium mt-2"
-                >Don't have an account. <Link href={'/signup'} className='text-[#5fc9f8] underline'>SignUp</Link> now</p>
+                >Don't have an account. <Link 
+                href={'/signup'} 
+                className='text-[##27b6f6] underline'
+                >SignUp</Link> now</p>
             </div>
         </div>
     )
