@@ -169,6 +169,6 @@ export const AccountAPI = {
     },
 
     userQRCode: async() => {
-        return avatars.getQR("github.com/coderKrysio", 600,3).href;
+        return avatars.getQR(`${APP_HOSTNAME}/card/${UserId}`, 600,3).href;
     }
 }
