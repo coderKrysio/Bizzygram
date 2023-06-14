@@ -176,7 +176,10 @@ const LogInMain = ({details, setDetails, userNo, setUserNo, handleGoogleSignUp}:
 
                 <p
                 className="text-center text-md font-medium mt-2"
-                >Don't have an account. <Link href={'/signup'} className='text-[#5fc9f8] underline'>SignUp</Link> now</p>
+                >Don't have an account. <Link 
+                href={'/signup'} 
+                className='text-[##27b6f6] underline'
+                >SignUp</Link> now</p>
             </div>
         </div>
     )

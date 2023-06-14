@@ -89,19 +89,29 @@ export default function SignUp() {
             : 
             <div className='flex h-screen w-screen justify-center items-center bg-[#f3fbfb] text-[#272343] pt-[60px]'>
                 <div className='flex flex-col justify-start items-center h-full w-fit m-auto'>
-                    {showUserType && <UserType details={details} setDetails={setDetails} setUserType={setUserType} setShowUserType={setShowUserType} />}
-                    {!showUserType && userType && <SignUpMain
-                        details={details}
-                        setDetails={setDetails}
-                        userNo={userNo}
-                        setUserNo={setUserNo}
-                        setShowUserType={setShowUserType}
-                        handleEmailSignUp={handleEmailSignUp}
-                        handleGoogleSignUp={handleGoogleSignUp} />
+                    {showUserType && <UserType {...{
+                        details,
+                        setDetails,
+                        setUserType,
+                        setShowUserType
+                    }}/>}
+
+                    {!showUserType && userType && <SignUpMain {...{
+                            details,
+                            setDetails,
+                            userNo,
+                            setUserNo,
+                            setShowUserType,
+                            handleEmailSignUp,
+                            handleGoogleSignUp,
+                        }}/>
                     }
                     <p
                     className="text-center text-md font-medium mb-8"
-                    >Already have an account. <Link href={'/login'} className='text-[#5fc9f8] underline'>Log In</Link> now</p>
+                    >Already have an account. <Link 
+                    href={'/login'} 
+                    className='text-[#27b6f6] underline'
+                    >Log In</Link> now</p>
                 </div>
             </div>}
         </>
