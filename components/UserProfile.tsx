@@ -55,7 +55,7 @@ const UserProfile = () => {
                 type: data.type,
             }))
             AccountAPI.userInitials(data.name).then((res: any) => {
-                console.log(res, "pp")
+                setProfilePhoto(res)
             })
         })
 
@@ -153,6 +153,8 @@ const UserProfile = () => {
                     {showUserCard && <UserCard {...{
                         setShowQR,
                         setShowUpdate,
+                        userDetails,
+                        cardInfo,
                     }}/>}
 
                     {showUpdateCard && <UpdateCard {...{
