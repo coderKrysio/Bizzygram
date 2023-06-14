@@ -40,29 +40,28 @@ export default function SignUp() {
     const handleEmailSignUp = () => {
         AccountAPI.emailSignUp(details)
         .then((res: any) => {
-            console.log(res)
-            handleSigning(res)            
-            // router.push(`/profile/${details.userId}`)
+            handleSigning(res)     
+            console.log(res)       
         }).catch((err: any) => console.log(err))        
     }
 
     const handleCreateDocument = (res: any) => {
-        console.log(res, "in doc creation")
-        // AccountAPI.createUserDocument(res)
-        // .then(() => {
-        //     console.log("created")
-        //     // setDetails((prev: any) => ({
-        //     //     ...prev,
-        //     //     userId: res.$id,
-        //     // }))
-        // }).catch((err: any) => console.log(err))
+        AccountAPI.createUserDocument(res)
+        .then(() => {
+            console.log("created")
+            setDetails((prev: any) => ({
+                ...prev,
+                userId: res.$id,
+            }))
+            localStorage.setItem("userId",res.$id)
+            localStorage.setItem("type",res.type)
+            router.push(`/profile/${res.$id}`)
+        }).catch((err: any) => console.log(err))
     }
 
     const handleSigning = (docDetails: any) => {
-        console.log(docDetails, "docdetails")
         AccountAPI.emailLogIn(details)
         .then((res: any) => {
-            console.log(res, "logging in")
             handleCreateDocument(docDetails)
         })
         .catch((err: any) => {
@@ -80,10 +79,6 @@ export default function SignUp() {
     useEffect(() => {
         getSession();
     }, [Client_Account])  
-
-    useEffect(() => {
-        if(userNo == 0) handleCreateDocument(user)
-    }, [userNo])
 
     return (
         <>

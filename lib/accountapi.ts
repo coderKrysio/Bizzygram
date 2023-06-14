@@ -81,7 +81,9 @@ export const AccountAPI = {
         return await database.listDocuments(DATABASE_ID, USER_COLLECTION_ID,
         [
             Query.equal("userId",[UserId]),
-        ]).then((res: any) => localStorage.setItem("typeValue", res.documents[0].type)).catch((err: any) => console.log(err))
+        ]).then((res: any) => 
+            localStorage.setItem("typeValue", res.documents[0].type)
+        ).catch((err: any) => console.log(err))
     },
     
     findingUser: async (response: any) => {
