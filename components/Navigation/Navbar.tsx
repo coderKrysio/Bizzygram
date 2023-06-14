@@ -29,6 +29,7 @@ const Navbar = ({
                 src='https://res.cloudinary.com/db7nrltsv/image/upload/v1686135910/barcode-scanner_jhr8js.png'
                 width={"30px"}
                 onClick={() => setScannerModal((prev: any) => !prev)}
+                alt='Scanner'
             /></button>
 
             {profileIcon && <div
@@ -36,6 +37,7 @@ const Navbar = ({
             onClick={() => setProfileModal((prev: any) => !prev)}
             ><img 
                 src={profilePhoto}
+                alt='Profile'
             /></div>}
             </div>
             

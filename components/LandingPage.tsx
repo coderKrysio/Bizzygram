@@ -18,6 +18,7 @@ const LandingPage = () => {
             ><img 
                 src='/landingpage.png'
                 className='max-[550px]:scale-[3] max-[550px]:translate-y-[166px] max-[800px]:scale-[1.5] max-[800px]:translate-y-[92px]'
+                alt='cards'
             /></div>
 
             <div className='absolute bottom-0 m-[10px] mb-[70px] flex flex-col gap-[25px] justify-center items-center max-[550px]:mb-[100px]'>
