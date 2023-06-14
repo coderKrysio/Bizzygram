@@ -2,60 +2,18 @@ import UserInformation from './UserInformation'
 import CardInformation from './CardInformation'
 import SocialInformation from './SocialInformation'
 import ProfilePhoto from './ProfilePhoto'
-import { useEffect, useState } from 'react'
-import { AccountAPI, Client_Account } from '@/lib/accountapi'
-import { useRouter } from 'next/navigation'
+import { AccountAPI } from '@/lib/accountapi'
 
-const ProfilePanel = () => {
-    const router = useRouter()
-    const [profilePhoto, setProfilePhoto] = useState();
-    const [userDetails, setUserDetails] = useState({
-        name: "",
-        email: "",
-        type: "",
-    })
-
-    const [cardInfo, setCardInfo] = useState({
-        profession: "",
-        organisation: "",
-        firmType: "",
-        contactNo: "",
-        socials: [],
-    })
+const ProfilePanel = ({
+    profilePhoto,
+    userDetails,
+    cardInfo,
+    setCardInfo,
+}: any) => {
 
     const updateProfile = () => {
         AccountAPI.updatingProfile(cardInfo)
     }
-
-    useEffect(()=>{
-        AccountAPI.userInitials()
-        .then((res: any) => setProfilePhoto(res))
-
-        AccountAPI.getUserInformation()
-        .then((res: any) => {
-            if(res.total==0) router.push('/signup')
-            const data = res.documents[0]
-            setUserDetails((prev: any) => ({
-                ...prev,
-                name: data.name,
-                email: data.email,
-                type: data.type,
-            }))
-        })
-
-        AccountAPI.fetchingProfile()
-        .then((res: any) => {
-            const data = res.documents[0]
-            setCardInfo((prev: any) => ({
-                ...prev,
-                profession: data.profession,
-                organisation: data.organisation,
-                firmType: data.firmType,
-                contactNo: data.contactNo,
-                socials: data.socials,
-            }))
-        })
-    },[])
     
     return (
         <div

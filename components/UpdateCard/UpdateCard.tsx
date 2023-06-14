@@ -1,50 +1,19 @@
-import { AccountAPI } from "@/lib/accountapi"
-import router from "next/router"
-import { useState, useEffect } from "react"
 import ColorPalette from "./ColorPalette"
 import Themes from "./Themes"
 
-const UpdateCard = ({setShowUserCard, setShowUpdate, setShowUpdateCard}: any) => {
-    const [userDetails, setUserDetails] = useState({
-        name: "",
-        email: "",
-        type: "",
-    })
+const UpdateCard = ({
+    setShowUserCard, 
+    setShowUpdate, 
+    setShowUpdateCard,
+    userDetails,
+    cardInfo,
+}: any) => {
 
-    const [cardInfo, setCardInfo] = useState({
-        profession: "",
-        organisation: "",
-        firmType: "",
-        contactNo: "",
-        socials: [],
-    })
-    
-    useEffect(()=>{
-        AccountAPI.getUserInformation()
-        .then((res: any) => {
-            if(res.total==0) router.push('/signup')
-            const data = res.documents[0]
-            setUserDetails((prev: any) => ({
-                ...prev,
-                name: data.name,
-                email: data.email,
-                type: data.type,
-            }))
-        })
-
-        AccountAPI.fetchingProfile()
-        .then((res: any) => {
-            const data = res.documents[0]
-            setCardInfo((prev: any) => ({
-                ...prev,
-                profession: data.profession,
-                organisation: data.organisation,
-                firmType: data.firmType,
-                contactNo: data.contactNo,
-                socials: data.socials,
-            }))
-        })
-    },[])
+    const handlePreviewBtn = () => {
+        setShowUpdateCard(false)
+        setShowUpdate(false)
+        setShowUserCard(true)
+    }
 
     return (
         <div
@@ -58,10 +27,7 @@ const UpdateCard = ({setShowUserCard, setShowUpdate, setShowUpdateCard}: any) =>
                 <div className="max-[580px]:hidden absolute right-0 mr-5 flex gap-[30px]">
                     <button
                     className='border-2 border-[#272343] rounded-lg font-semibold py-1 w-[150px] hover:bg-[#ffd803] hover:border-[#ffd803]'
-                    onClick={() => {
-                        setShowUpdateCard(false)
-                        setShowUserCard(true)
-                    }}
+                    onClick={handlePreviewBtn}
                     >Preview</button>
 
                     <button
@@ -78,11 +44,7 @@ const UpdateCard = ({setShowUserCard, setShowUpdate, setShowUpdateCard}: any) =>
                 <div className="min-[580px]:hidden flex gap-[30px] justify-center items-center">
                     <button
                     className='text-xl w-[150px] font-semibold tracking-wide border-2 border-[#272343] m-2 py-2 rounded-xl hover:bg-[#ffd803] hover:border-[#ffd803]'
-                    onClick={() => {
-                        setShowUpdateCard(false)
-                        setShowUpdate(false)
-                        setShowUserCard(true)
-                    }}
+                    onClick={handlePreviewBtn}
                     >Preview</button>
 
                     <button

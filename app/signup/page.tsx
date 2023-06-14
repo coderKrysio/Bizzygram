@@ -83,9 +83,9 @@ export default function SignUp() {
     return (
         <>
             <Navbar profileIcon={profileIcon} />
-            {user && details.userId != "" ? 
+            {user ? 
                 <>
-                    {router.push(`/profile/${details.userId}`)}
+                    {router.push(`/login`)}
                 </>
             : 
             <div className='flex h-screen w-screen justify-center items-center bg-[#f3fbfb] text-[#272343] pt-[60px]'>

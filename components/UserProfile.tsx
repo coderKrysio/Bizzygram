@@ -44,12 +44,6 @@ const UserProfile = () => {
     })
 
     useEffect(()=>{
-        AccountAPI.userInitials()
-        .then((res: any) => setProfilePhoto(res))
-
-        AccountAPI.userQRCode()
-        .then((res: any) => setQRCode(res))
-
         AccountAPI.getUserInformation()
         .then((res: any) => {
             if(res.total==0) router.push('/signup')
@@ -60,6 +54,9 @@ const UserProfile = () => {
                 email: data.email,
                 type: data.type,
             }))
+            AccountAPI.userInitials(data.name).then((res: any) => {
+                console.log(res, "pp")
+            })
         })
 
         AccountAPI.fetchingProfile()
@@ -76,6 +73,9 @@ const UserProfile = () => {
                 }))
             }
         })
+
+        AccountAPI.userQRCode()
+        .then((res: any) => setQRCode(res))
     },[])
 
     useEffect(() => {
@@ -136,10 +136,17 @@ const UserProfile = () => {
                 showUpdate ? <UpdateCard {...{
                     setShowUserCard,
                     setShowUpdateCard,
-                    setShowUpdate
+                    setShowUpdate,
+                    userDetails,
+                    cardInfo,
                 }}/> :
                 <>
-                    {showProfile && <ProfilePanel />}
+                    {showProfile && <ProfilePanel {...{
+                        profilePhoto,
+                        userDetails,
+                        cardInfo,
+                        setCardInfo,
+                    }}/>}
 
                     {showConnections && <Connections />}
 
