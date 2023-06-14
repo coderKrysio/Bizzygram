@@ -124,6 +124,7 @@ const SideNavigation = ({
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686057881/gear_2_ivskth.png"
                     title="Settings"
                     width={"25px"}
+                    alt="Settings"
                 /></button>
 
                 <button
@@ -133,6 +134,7 @@ const SideNavigation = ({
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686068779/help-web-button_ehv5qe.png"
                     title="Help"
                     width={"25px"}
+                    alt="Help"
                 /></button>
             </div>            
         </div>

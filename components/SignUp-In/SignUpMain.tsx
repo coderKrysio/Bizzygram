@@ -59,7 +59,11 @@ const SignUpMain = ({details, setDetails, userNo, setUserNo, setShowUserType, ha
                 <button 
                 className='w-fit ml-0'
                 onClick={handleBackBtn}
-                ><img src='https://res.cloudinary.com/db7nrltsv/image/upload/v1686363947/left-arrow_lmf6jf.png' width={"25px"} /></button>
+                ><img 
+                    src='https://res.cloudinary.com/db7nrltsv/image/upload/v1686363947/left-arrow_lmf6jf.png' 
+                    width={"25px"} 
+                    alt="Back"
+                /></button>
             </div>
 
             <div className='flex flex-col h-[450px]'>        
@@ -75,6 +79,7 @@ const SignUpMain = ({details, setDetails, userNo, setUserNo, setShowUserType, ha
                     className='mr-4'
                     src='https://res.cloudinary.com/db7nrltsv/image/upload/v1685734638/search_bi0uwu.png' 
                     width={'25px'}
+                    alt="Google"
                     />
                     Continue with Google
                 </button>
@@ -138,7 +143,11 @@ const SignUpMain = ({details, setDetails, userNo, setUserNo, setShowUserType, ha
                             <button
                             className='w-fit absolute left-[90%] translate-x-[-20%] flex items-center'
                             onClick={() => setShow(prev => !prev)}
-                            ><img src={btnIcon} width={"25px"}/></button>
+                            ><img 
+                                src={btnIcon} 
+                                width={"25px"}
+                                alt="Show Password"
+                            /></button>
                         </form>
                     </div>
 

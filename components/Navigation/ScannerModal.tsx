@@ -21,6 +21,7 @@ const ScannerModal = ({setScannerModal}: any) => {
                 ><img
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686137191/close_uq5hed.png"
                     width={"22px"}
+                    alt="Close"
                 /></button>
 
                 <h1

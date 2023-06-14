@@ -45,6 +45,7 @@ const ProfilePanel = ({
                     className='w-[200px] h-[200px] rounded-[100px] bg-[#fff] overflow-hidden'
                     ><img 
                         src={profilePhoto}
+                        alt='Profile'
                     /></div>
 
                     <button

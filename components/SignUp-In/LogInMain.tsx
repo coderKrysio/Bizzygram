@@ -92,7 +92,11 @@ const LogInMain = ({details, setDetails, userNo, setUserNo, handleGoogleSignUp}:
                 {showField && <button 
                 className='w-fit ml-0'
                 onClick={() => setShowField(false)}
-                ><img src='https://res.cloudinary.com/db7nrltsv/image/upload/v1686363947/left-arrow_lmf6jf.png' width={"25px"} /></button>}
+                ><img 
+                    src='https://res.cloudinary.com/db7nrltsv/image/upload/v1686363947/left-arrow_lmf6jf.png' 
+                    width={"25px"} 
+                    alt='Back'
+                /></button>}
             </div>
 
             <div className='flex flex-col'>
@@ -108,6 +112,7 @@ const LogInMain = ({details, setDetails, userNo, setUserNo, handleGoogleSignUp}:
                     className='mr-4'
                     src='https://res.cloudinary.com/db7nrltsv/image/upload/v1685734638/search_bi0uwu.png' 
                     width={'25px'}
+                    alt='Google'
                     />
                     Continue with Google
                 </button>
@@ -155,6 +160,7 @@ const LogInMain = ({details, setDetails, userNo, setUserNo, handleGoogleSignUp}:
                             ><img 
                                 src={btnIcon} 
                                 width={"25px"}
+                                alt='Show Password'
                             /></button>
                         </form>
                     </>}

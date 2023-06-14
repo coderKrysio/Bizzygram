@@ -30,6 +30,7 @@ const Template1 = ({scale, userDetails, cardInfo}: any) => {
                     <img
                     width={"25px"}
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686664678/web_gcandf.png"
+                    alt="Website"
                     />
                 </Link>}
                 
@@ -39,6 +40,7 @@ const Template1 = ({scale, userDetails, cardInfo}: any) => {
                     <img
                     width={"25px"}
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686288647/linkedin_b20ye2.png"
+                    alt="LinkedIn"
                     />
                 </Link>}
                 
@@ -48,6 +50,7 @@ const Template1 = ({scale, userDetails, cardInfo}: any) => {
                     <img
                     width={"25px"}
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686288648/twitter_q1bm12.png"
+                    alt="Twitter"
                     />
                 </Link>}
 
@@ -57,6 +60,7 @@ const Template1 = ({scale, userDetails, cardInfo}: any) => {
                     <img
                     width={"25px"}
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686288648/instagram_d9iojt.png"
+                    alt="Instagram"
                     />
                 </Link>}
 
@@ -66,6 +70,7 @@ const Template1 = ({scale, userDetails, cardInfo}: any) => {
                     <img
                     width={"25px"}
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686288650/github_ddqtuo.png"
+                    alt="Github"
                     />
                 </Link>}
 
@@ -75,6 +80,7 @@ const Template1 = ({scale, userDetails, cardInfo}: any) => {
                     <img
                     width={"25px"}
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686288872/facebook-app-symbol_flf5yh.png"
+                    alt="Facebook"
                     />
                 </Link>}
 
@@ -84,6 +90,7 @@ const Template1 = ({scale, userDetails, cardInfo}: any) => {
                     <img
                     width={"25px"}
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686288873/discord_ftcfae.png"
+                    alt="Discord"
                     />
                 </Link>}
 
@@ -93,6 +100,7 @@ const Template1 = ({scale, userDetails, cardInfo}: any) => {
                     <img
                     width={"25px"}
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686288874/telegram_pgcok3.png"
+                    alt="Telegram"
                     />
                 </Link>}
 
@@ -102,6 +110,7 @@ const Template1 = ({scale, userDetails, cardInfo}: any) => {
                     <img
                     width={"25px"}
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686312654/email_tajpoz.png"
+                    alt="Email"
                     />
                 </Link>
 
@@ -111,6 +120,7 @@ const Template1 = ({scale, userDetails, cardInfo}: any) => {
                     <img
                     width={"25px"}
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686354043/phone-call_nad0u4.png"
+                    alt="Contact No"
                     />
                 </Link>}
             </div>

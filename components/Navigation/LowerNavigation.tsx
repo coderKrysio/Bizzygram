@@ -61,6 +61,7 @@ const LowerNavigation = ({
                     "https://res.cloudinary.com/db7nrltsv/image/upload/v1686049321/link_2_d2xsux.png"
                 }
                 width={"25px"}
+                alt="Connections"
                 />
                 Connections
             </button>
@@ -76,6 +77,7 @@ const LowerNavigation = ({
                     "https://res.cloudinary.com/db7nrltsv/image/upload/v1686047999/user_3_y0ugew.png"
                 }
                 width={"25px"}
+                alt="Profile"
                 />
                 Profile
             </button>
@@ -91,6 +93,7 @@ const LowerNavigation = ({
                     "https://res.cloudinary.com/db7nrltsv/image/upload/v1686048101/credit-card_erbjpe.png"
                 }
                 width={"25px"}
+                alt="Card"
                 />
                 Card
             </button>
@@ -106,6 +109,7 @@ const LowerNavigation = ({
                     "https://res.cloudinary.com/db7nrltsv/image/upload/v1686048212/gear_dndbea.png"
                 }
                 width={"25px"}
+                alt="Settings"
                 />
                 Settings
             </button>
