@@ -8,6 +8,15 @@ const UserType = ({details, setDetails, setUserType, setShowUserType}: any) => {
     const [typeValue, setTypeValue] = useState("");
     const [errMsg, setErrMsg] = useState("");
 
+    const handleUserTypeSubmit = () => {
+        if(details.type == "") setErrMsg("Please choose any one option")
+        else {
+            setShowUserType(false)
+            setUserType(true)
+            setErrMsg("")
+        }
+    }
+
     useEffect(() => {
         if(addBorder1) setBorder1("border-4")
         else setBorder1("")
@@ -32,15 +41,6 @@ const UserType = ({details, setDetails, setUserType, setShowUserType}: any) => {
         }))
     }, [typeValue])
 
-    const handleUserTypeSubmit = () => {
-        if(details.type == "") setErrMsg("Please choose any one option")
-        else {
-            setShowUserType(false)
-            setUserType(true)
-            setErrMsg("")
-        }
-    }
-
     return (
         <div className="flex flex-col p-5 w-fit h-[472px] max-[675px]:h-fit mt-[30px] mb-[60px]">
             <h3
@@ -60,9 +60,7 @@ const UserType = ({details, setDetails, setUserType, setShowUserType}: any) => {
                         <img src="https://res.cloudinary.com/db7nrltsv/image/upload/v1685813832/user_uicuhb.png" width={"50px"} />
                         <span
                         className="text-center text-xl font-semibold"
-                        >                       
-                            Individual
-                        </span>
+                        >Individual</span>
                     </div>
                     
                 </div>
@@ -77,9 +75,7 @@ const UserType = ({details, setDetails, setUserType, setShowUserType}: any) => {
                         <img src="https://res.cloudinary.com/db7nrltsv/image/upload/v1685813846/multiple-users-silhouette_y1qxao.png" width={"50px"} />
                         <span
                         className="text-center text-xl font-semibold"
-                        >
-                            Organisation or Local Business
-                        </span>
+                        >Organisation or Local Business</span>
                     </div>
                     
                 </div>
