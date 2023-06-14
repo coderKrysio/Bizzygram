@@ -1,25 +1,36 @@
 import { AccountAPI } from "@/lib/accountapi";
 import { useRouter } from "next/navigation"
 
-const ProfileModal = ({setShowProfile, setShowConnections, setShowUserCard, setShowSetting}: any) => {
+const ProfileModal = ({
+    setShowProfile, 
+    setShowConnections, 
+    setShowUserCard, 
+    setShowSetting,
+    setShowUpdateCard,
+    setShowUpdate,
+    setShowQR,
+}: any) => {
+
     const btnStyle = 'border-b-2 border-slate-300 p-2 text-lg font-medium tracking-wide hover:font-semibold';
     const router = useRouter()
 
     const updatePanel = (arg: any) => {
+        setShowConnections(false)
+        setShowUpdateCard(false)
+        setShowUpdate(false)
+        setShowQR(false)
+
         if(arg == "Profile") {
             setShowUserCard(false)
             setShowSetting(false)
-            setShowConnections(false)
             setShowProfile(true)
         } else if(arg == "Card") {
             setShowProfile(false)
             setShowSetting(false)
-            setShowConnections(false)
             setShowUserCard(true)
         } else if(arg == "Settings") {
             setShowProfile(false)
             setShowUserCard(false)
-            setShowConnections(false)
             setShowSetting(true)     
         }
     }

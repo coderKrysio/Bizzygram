@@ -90,6 +90,7 @@ const UserProfile = () => {
         >
             <Navbar {...{
                 profileIcon,
+                profilePhoto,
                 setScannerModal,
                 setProfileModal,
             }}/>
@@ -102,7 +103,10 @@ const UserProfile = () => {
                 setShowProfile,
                 setShowConnections,
                 setShowUserCard,
-                setShowSetting
+                setShowSetting,
+                setShowUpdateCard,
+                setShowUpdate,
+                setShowQR,
             }}/>}
 
             <SideNavigation {...{

@@ -1,15 +1,13 @@
-import { AccountAPI } from '@/lib/accountapi';
 import { useRouter } from 'next/navigation';
-import React, { useEffect, useState } from 'react'
 
-const Navbar = ({profileIcon, setScannerModal, setProfileModal}: any) => {
-    const [profilePhoto, setProfilePhoto] = useState();
+const Navbar = ({
+    profileIcon,
+    profilePhoto,
+    setScannerModal,
+    setProfileModal,
+}: any) => {
+
     const router = useRouter()
-    
-    useEffect(() => {
-        AccountAPI.userInitials()
-        .then((res: any) => setProfilePhoto(res))
-    },[])
 
     return (
         <div
