@@ -39,7 +39,7 @@ const ProfileModal = ({
         localStorage.setItem("userId", "");
         localStorage.setItem("type", "");
         AccountAPI.deleteSession()
-        router.push('/login');
+        router.push('/');
     }
 
     return (

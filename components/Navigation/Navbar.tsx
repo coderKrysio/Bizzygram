@@ -11,7 +11,7 @@ const Navbar = ({
 
     return (
         <div
-        className='fixed left-0 top-0 flex justify-center items-center w-screen h-[60px] z-10 border-b-[3px] border-slate-300 bg-[#bae8e8] max-[550px]:justify-start max-[1070px]:bg-[#ffe65b]'
+        className='fixed left-0 top-0 flex justify-center items-center w-screen h-[60px] z-10 border-b-[3px] border-slate-300 bg-[#bae8e8] max-[550px]:justify-start'
         >
             <h1
             className='text-2xl tracking-wide font-bold max-[550px]:ml-4 hover:cursor-pointer'

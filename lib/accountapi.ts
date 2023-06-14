@@ -18,6 +18,10 @@ const database = new Databases(client);
 
 const avatars = new Avatars(client);
 
+client.subscribe('account', () => {
+    console.log("account changed");
+});
+
 export const Client_Account = account;
 export const TypeValue = localStorage.getItem("typeValue") || ""
 export const UserId = localStorage.getItem("userId") || ""
