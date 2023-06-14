@@ -156,6 +156,14 @@ export const AccountAPI = {
         )
     },
 
+    gettingCardUserProfile: async (cardId: any) => {
+        return await database.listDocuments(DATABASE_ID, PROFILE_COLLECTION_ID,
+            [
+                Query.equal("userId", [cardId])
+            ]
+        )
+    },
+
     userInitials: async() => {
         return avatars.getInitials().href
     },
