@@ -64,7 +64,7 @@ const UserType = ({details, setDetails, setUserType, setShowUserType}: any) => {
                     onClick={() => setTypeValue("Individual")}
                     >
                         <Image 
-                        src="https://res.cloudinary.com/db7nrltsv/image/upload/v1685813832/user_uicuhb.png" 
+                        src="/images/user.png" 
                         alt="Individual"
                         width={50}
                         height={50}
@@ -84,7 +84,7 @@ const UserType = ({details, setDetails, setUserType, setShowUserType}: any) => {
                     onClick={() => setTypeValue("Organisation or Local Business")}
                     >
                         <Image 
-                        src="https://res.cloudinary.com/db7nrltsv/image/upload/v1685813846/multiple-users-silhouette_y1qxao.png" 
+                        src="/images/multiple-users.png" 
                         alt="Organisation or Local Business"
                         width={50} 
                         height={50}

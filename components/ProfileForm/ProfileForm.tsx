@@ -13,7 +13,7 @@ const ProfileForm = ({user}: any) => {
                 className='w-fit ml-0'
                 onClick={() => setOpenSocials(false)}
                 ><Image 
-                    src='https://res.cloudinary.com/db7nrltsv/image/upload/v1686363947/left-arrow_lmf6jf.png' 
+                    src='/images/back.png' 
                     alt="Back"
                     width={25} 
                     height={25}

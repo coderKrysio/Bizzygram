@@ -20,7 +20,7 @@ const ScannerModal = ({setScannerModal}: any) => {
                 className="absolute right-0 top-0 m-5"
                 onClick={() => setScannerModal(false)}
                 ><Image
-                    src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686137191/close_uq5hed.png"
+                    src="/images/close.png"
                     width={22}
                     height={22}
                     alt="Close"

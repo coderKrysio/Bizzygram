@@ -126,7 +126,7 @@ const SideNavigation = ({
                 className="font-semibold"
                 onClick={() => updatePanel("Settings")}
                 ><Image 
-                    src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686057881/gear_2_ivskth.png"
+                    src="/images/setting-fill.png"
                     title="Settings"
                     width={25}
                     height={25}
@@ -137,7 +137,7 @@ const SideNavigation = ({
                 className="font-semibold"
                 onClick={() => updatePanel("Help")}
                 ><Image 
-                    src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686068779/help-web-button_ehv5qe.png"
+                    src="/images/help.png"
                     title="Help"
                     width={25}
                     height={25}

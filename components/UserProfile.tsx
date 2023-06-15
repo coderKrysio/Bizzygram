@@ -86,7 +86,6 @@ const UserProfile = () => {
 
     useEffect(()=>{
         getSession()
-        console.log(userDetails, "user details")
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[Client_Account])
 
@@ -100,6 +99,10 @@ const UserProfile = () => {
         }
     },[showUpdate])
 
+    useEffect(() => {
+        console.log(userDetails, "user details")
+    },[userDetails])
+
     return (
         <div 
         className="bg-[#f3fbfb] text-[#272343] flex w-screen h-screen overflow-hidden"
@@ -111,7 +114,7 @@ const UserProfile = () => {
                 setProfileModal,
             }}/>
 
-            {/* {scannerModal && <ScannerModal {...{
+            {scannerModal && <ScannerModal {...{
                 setScannerModal
             }}/>}
 
@@ -205,7 +208,7 @@ const UserProfile = () => {
                 setShowQR,
                 setShowUpdate,
                 setProfileModal,
-            }}/> */}
+            }}/>
         </div>
     )
 }

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const SignUpMain = ({details, setDetails, userNo, setUserNo, setShowUserType, handleEmailSignUp, handleGoogleSignUp}: any) => {
     const [showOptions, setShowOptions] = useState(false);
-    const [btnIcon, setBtnIcon] = useState('https://res.cloudinary.com/db7nrltsv/image/upload/v1685730959/eye_2_ire49w.png')
+    const [btnIcon, setBtnIcon] = useState('/images/eye.png')
     const [gotError, setGotError] = useState(false);
     const [errorType, setErrorType] = useState("");
     const [passwordType, setPasswordType] = useState("password");
@@ -30,10 +30,10 @@ const SignUpMain = ({details, setDetails, userNo, setUserNo, setShowUserType, ha
     useEffect(() => {
         if(show) {
             setPasswordType("text");
-            setBtnIcon('https://res.cloudinary.com/db7nrltsv/image/upload/v1685728593/hidden_fxhkt6.png');
+            setBtnIcon('/images/hidden.png');
         } else {
             setPasswordType("password");
-            setBtnIcon('https://res.cloudinary.com/db7nrltsv/image/upload/v1685730959/eye_2_ire49w.png');
+            setBtnIcon('/images/eye.png');
         }
     }, [show])
 
@@ -62,7 +62,7 @@ const SignUpMain = ({details, setDetails, userNo, setUserNo, setShowUserType, ha
                 className='w-fit ml-0'
                 onClick={handleBackBtn}
                 ><Image 
-                    src='https://res.cloudinary.com/db7nrltsv/image/upload/v1686363947/left-arrow_lmf6jf.png' 
+                    src='/images/back.png' 
                     width={25} 
                     height={25}
                     alt="Back"
