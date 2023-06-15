@@ -1,7 +1,7 @@
 import { AccountAPI } from "@/lib/accountapi"
 import { useRouter } from "next/navigation";
 
-const SocialsInfo = ({user}: any) => {
+const SocialsInfo = ({user, setProfileUser}: any) => {
     const router = useRouter()
     const links: any = ["","", "", "", "", "", "", ""]
 
@@ -9,11 +9,11 @@ const SocialsInfo = ({user}: any) => {
 
     const handleNextBtn = () => {       
         AccountAPI.updatingSocials(user.$id, links)
-        router.push('/login')
+        setProfileUser(1)
     }
 
     return (
-        <div className='flex flex-col justify-center items-center overflow-scroll mb-[40px]'>
+        <div className='flex flex-col justify-center items-center overflow-scroll mb-[40px] p-4'>
             <div 
             className='grid grid-cols-[150px_minmax(150px,_300px)] items-center gap-[15px] max-[550px]:grid-cols-1 max-[550px]:gap-[5px]'
             >

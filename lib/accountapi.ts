@@ -98,14 +98,14 @@ export const AccountAPI = {
         )
     },
 
-    addingNewProfile: async (res:any) => {
+    addingNewProfile: async (res:any, profileDetails: any) => {
         return await database.createDocument(DATABASE_ID, PROFILE_COLLECTION_ID, ID.unique(), {
             userId: res.$id,
             type: res.type,
-            profession: res.profession,
-            organisation: res.organisation,
-            firmType: res.firmType,
-            contactNo: res.contactNo,
+            profession: profileDetails.profession,
+            organisation: profileDetails.organisation,
+            firmType: profileDetails.firmType,
+            contactNo: profileDetails.contactNo,
         }, [
             Permission.write(Role.any()),
         ]).then(() => { 

@@ -9,6 +9,7 @@ export default function Login() {
     const router = useRouter();
     const [user, setUser] = useState()
     const [userNo, setUserNo] = useState(0);
+    const [userId, setUserId] = useState();
     const [profileIcon, setProfileIcon] = useState(false)
     const [details, setDetails] = useState({
         name: "",
@@ -23,6 +24,7 @@ export default function Login() {
         .then((res: any) => {
             getAccount(res)
             setUser(res)
+            setUserId(res.$id)
         })
         .catch((err) => console.log(err));
     }
@@ -61,7 +63,7 @@ export default function Login() {
             <div className='flex h-screen w-screen justify-center items-center bg-[#f3fbfb] text-[#272343] pt-[60px]'>
                 <div className='h-full pt-[30px] w-fit m-auto'>
                     {user ? 
-                        <></>
+                        <>{router.push(`/profile/${userId}`)}</>
                         : 
                         <LogInMain {...{
                             details,

@@ -41,8 +41,6 @@ export default function SignUp() {
         AccountAPI.emailSignUp(details)
         .then((res: any) => {
             handleSigning(res)
-            localStorage.setItem("userId",res.$id)
-            router.push(`/profile/${res.$id}`)   
         }).catch((err: any) => console.log(err))     
     }
 
@@ -55,6 +53,7 @@ export default function SignUp() {
             }))
             localStorage.setItem("userId",res.$id)
             localStorage.setItem("type",res.type)
+            router.push(`/profile/${res.$id}`)  
         }).catch((err: any) => console.log(err))
     }
 

@@ -62,7 +62,7 @@ const SignUpMain = ({details, setDetails, userNo, setUserNo, setShowUserType, ha
                 className='w-fit ml-0'
                 onClick={handleBackBtn}
                 ><Image 
-                    src='/images/back.png' 
+                    src='/images/left-arrow.png' 
                     width={25} 
                     height={25}
                     alt="Back"
@@ -80,7 +80,7 @@ const SignUpMain = ({details, setDetails, userNo, setUserNo, setShowUserType, ha
                 >
                     <Image 
                     className='mr-4'
-                    src='https://res.cloudinary.com/db7nrltsv/image/upload/v1685734638/search_bi0uwu.png' 
+                    src='/images/google.png' 
                     width={25}
                     height={25}
                     alt="Google"
