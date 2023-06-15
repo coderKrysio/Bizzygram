@@ -144,7 +144,7 @@ export const AccountAPI = {
     fetchingCards: async (userId: any) => {
         return await database.listDocuments(DATABASE_ID, CARD_COLLECTION_ID, 
             [
-                Query.equal("userId", [userId])
+                Query.equal("userId", [userId]),
             ]
         )
     },

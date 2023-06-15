@@ -1,4 +1,4 @@
-const ConnectionCard = () => {
+const ConnectionCard = ({cardId}: any) => {
     return (
       <div
       className="h-[225px] w-[375px] m-auto flex flex-col justify-center items-center max-[470px]:scale-[0.87] max-[400px]:scale-[0.85] max-[470px]:m-0"
