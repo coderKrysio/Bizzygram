@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const LogInMain = ({details, setDetails, userNo, setUserNo, handleGoogleSignUp}: any) => {
-    const [btnIcon, setBtnIcon] = useState('https://res.cloudinary.com/db7nrltsv/image/upload/v1685730959/eye_2_ire49w.png')
+    const [btnIcon, setBtnIcon] = useState('/images/eye.png')
     const [gotError, setGotError] = useState(false);
     const [errorType, setErrorType] = useState("");
     const [passwordType, setPasswordType] = useState("password");
@@ -63,10 +63,10 @@ const LogInMain = ({details, setDetails, userNo, setUserNo, handleGoogleSignUp}:
     useEffect(() => {
         if(show) {
             setPasswordType("text");
-            setBtnIcon('https://res.cloudinary.com/db7nrltsv/image/upload/v1685728593/hidden_fxhkt6.png');
+            setBtnIcon('/images/hidden.png');
         } else {
             setPasswordType("password");
-            setBtnIcon('https://res.cloudinary.com/db7nrltsv/image/upload/v1685730959/eye_2_ire49w.png');
+            setBtnIcon('/images/eye.png');
         }
     }, [show])
 
@@ -95,7 +95,7 @@ const LogInMain = ({details, setDetails, userNo, setUserNo, handleGoogleSignUp}:
                 className='w-fit ml-0'
                 onClick={() => setShowField(false)}
                 ><Image 
-                    src='https://res.cloudinary.com/db7nrltsv/image/upload/v1686363947/left-arrow_lmf6jf.png' 
+                    src='/images/back.png' 
                     width={25} 
                     height={25}
                     alt='Back'
@@ -113,7 +113,7 @@ const LogInMain = ({details, setDetails, userNo, setUserNo, handleGoogleSignUp}:
                 >
                     <Image 
                     className='mr-4'
-                    src='https://res.cloudinary.com/db7nrltsv/image/upload/v1685734638/search_bi0uwu.png' 
+                    src='/images/google.png' 
                     width={25}
                     height={25}
                     alt='Google'
@@ -189,7 +189,7 @@ const LogInMain = ({details, setDetails, userNo, setUserNo, handleGoogleSignUp}:
                 className='text-center text-md font-medium mt-2'
                 >Don&#39;t have an account. <Link 
                 href={'/signup'} 
-                className='text-[##27b6f6] underline'
+                className='text-[#27b6f6] underline'
                 >SignUp</Link> now</p>
             </div>
         </div>

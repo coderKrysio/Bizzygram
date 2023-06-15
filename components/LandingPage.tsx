@@ -17,7 +17,7 @@ const LandingPage = () => {
             <div
             className='absolute top-0 left-0 w-screen h-screen flex justify-center items-start bg-contain overflow-hidden'
             ><Image 
-                src='/landingpage.png'
+                src='/images/landingpage.png'
                 className='max-[550px]:scale-[3] max-[550px]:translate-y-[166px] max-[800px]:scale-[1.5] max-[800px]:translate-y-[92px]'
                 alt='cards'
                 width={2160}

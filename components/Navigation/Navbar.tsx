@@ -27,7 +27,7 @@ const Navbar = ({
             className='absolute right-0 mr-5 flex gap-[30px] max-[470px]:gap-[20px]'
             >
             <button><Image
-                src='https://res.cloudinary.com/db7nrltsv/image/upload/v1686135910/barcode-scanner_jhr8js.png'
+                src='/images/scanner.png'
                 width={30}
                 height={30}
                 onClick={() => setScannerModal((prev: any) => !prev)}

@@ -28,10 +28,20 @@ const ProfilePanel = ({
                 <div
                 className='flex flex-col gap-[35px] overflow-scroll overflow-x-hidden'
                 >
-                    <ProfilePhoto profilePhoto={profilePhoto} userDetails={userDetails} />
-                    <UserInformation userDetails={userDetails} />
-                    <CardInformation userDetails={userDetails} cardInfo={cardInfo} setCardInfo={setCardInfo} />
-                    <SocialInformation cardInfo={cardInfo} />
+                    <ProfilePhoto {...{
+                        profilePhoto,
+                        userDetails
+                    }}/>
+
+                    <UserInformation {...{userDetails}} />
+
+                    <CardInformation {...{
+                        userDetails,
+                        cardInfo,
+                        setCardInfo,
+                    }}/>
+
+                    <SocialInformation {...{cardInfo}} />
 
                     <button
                     className='min-[1070px]:hidden text-xl w-fit font-semibold tracking-wide border-2 border-[#272343] m-auto mb-5 px-7 py-2 rounded-xl hover:bg-[#ffd803] hover:border-[#ffd803] max-[1180px]:relative'

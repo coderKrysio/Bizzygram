@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 
 export default function Login() {
     const router = useRouter();
+    const [user, setUser] = useState()
     const [userNo, setUserNo] = useState(0);
     const [profileIcon, setProfileIcon] = useState(false)
     const [details, setDetails] = useState({
@@ -21,6 +22,7 @@ export default function Login() {
         AccountAPI.getAccount()
         .then((res: any) => {
             getAccount(res)
+            setUser(res)
         })
         .catch((err) => console.log(err));
     }
@@ -44,6 +46,10 @@ export default function Login() {
     }
 
     useEffect(() => {
+        if(details.userId != "") router.push(`/profile/${details.userId}`)
+    },[details.userId])
+
+    useEffect(() => {
         getSession();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [Client_Account])  
@@ -53,10 +59,8 @@ export default function Login() {
             <Navbar profileIcon={profileIcon} />
             <div className='flex h-screen w-screen justify-center items-center bg-[#f3fbfb] text-[#272343] pt-[60px]'>
                 <div className='h-full pt-[30px] w-fit m-auto'>
-                    {details.userId !="" ? 
-                        <>
-                            {router.push(`/profile/${details.userId}`)}
-                        </>
+                    {user ? 
+                        <></>
                         : 
                         <LogInMain {...{
                             details,

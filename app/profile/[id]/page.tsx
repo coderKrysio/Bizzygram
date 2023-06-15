@@ -47,7 +47,7 @@ const Profile = () => {
 
     return (
         <>            
-            {profileDetails.userId != "" ?         
+            {profileDetails.userId != "" &&         
                 <>
                 {profileUser == 0 ? 
                     <div className='flex w-screen h-screen overflow-hidden'>
@@ -58,8 +58,8 @@ const Profile = () => {
                     </div>
                     : 
                     <UserProfile />
-                }</>:
-                router.push("/")
+                }</>
+                // router.push("/login")
             }
         </>
     )
