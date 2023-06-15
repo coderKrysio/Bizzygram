@@ -13,7 +13,7 @@ const ProfilePanel = ({
 }: any) => {
 
     const updateProfile = () => {
-        AccountAPI.updatingProfile(cardInfo)
+        AccountAPI.updatingProfile(userDetails.userId ,cardInfo)
     }
     
     return (
@@ -30,7 +30,7 @@ const ProfilePanel = ({
                 >
                     <ProfilePhoto profilePhoto={profilePhoto} userDetails={userDetails} />
                     <UserInformation userDetails={userDetails} />
-                    <CardInformation cardInfo={cardInfo} setCardInfo={setCardInfo} />
+                    <CardInformation userDetails={userDetails} cardInfo={cardInfo} setCardInfo={setCardInfo} />
                     <SocialInformation cardInfo={cardInfo} />
 
                     <button

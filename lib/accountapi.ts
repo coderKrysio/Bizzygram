@@ -1,5 +1,7 @@
 import { Account, Avatars, Client, Databases, ID, Permission, Query, Role } from "appwrite";
+import { data } from "autoprefixer";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export const APPWRITE_PROJECT_ID: string = "648088e725ae5e39d699";
 export const APPWRITE_ENDPOINT: string = "https://cloud.appwrite.io/v1";
@@ -7,6 +9,7 @@ export const APP_HOSTNAME: string = "http://localhost:3000"
 const DATABASE_ID = "64808ff4e102a971fed4";
 const USER_COLLECTION_ID = "6480900090a02a55873c";
 const PROFILE_COLLECTION_ID = "648090305981ddfb2cb1";
+const CARD_COLLECTION_ID = "648ac8999b732d42163a";
 
 const client = new Client()
     .setEndpoint(APPWRITE_ENDPOINT)
@@ -23,13 +26,8 @@ const avatars = new Avatars(client);
 // });
 
 export const Client_Account = account;
-export const TypeValue = localStorage.getItem("typeValue") || ""
-export const UserId = localStorage.getItem("userId") || ""
 
-// export const TypeValue = "Individual"
-// export const UserId = ""
-
-export const AccountAPI = {
+export const AccountAPI = {    
     getAccount: async () => {
         return await account.get();
     },
@@ -59,7 +57,7 @@ export const AccountAPI = {
             name: params.name,
             userId: params.$id,
             email: params.email,
-            type: TypeValue,
+            type: params.type,
         }, 
             [
                 Permission.write(Role.any()),
@@ -75,18 +73,18 @@ export const AccountAPI = {
         )
     },
 
-    getUserInformation: async() => {
+    getUserInformation: async(userId: any) => {
         return await database.listDocuments(DATABASE_ID, USER_COLLECTION_ID,
             [
-                Query.equal("userId", [UserId]),
+                Query.equal("userId", [userId]),
             ]
         )
     },
 
-    gettingTypeValue: async () => {
+    gettingTypeValue: async (userId: any) => {
         return await database.listDocuments(DATABASE_ID, USER_COLLECTION_ID,
         [
-            Query.equal("userId",[UserId]),
+            Query.equal("userId",[userId]),
         ]).then((res: any) => 
             localStorage.setItem("typeValue", res.documents[0].type)
         ).catch((err: any) => console.log(err))
@@ -102,23 +100,27 @@ export const AccountAPI = {
 
     addingNewProfile: async (res:any) => {
         return await database.createDocument(DATABASE_ID, PROFILE_COLLECTION_ID, ID.unique(), {
-            userId: UserId,
-            type: TypeValue,
+            userId: res.$id,
+            type: res.type,
             profession: res.profession,
             organisation: res.organisation,
             firmType: res.firmType,
             contactNo: res.contactNo,
         }, [
             Permission.write(Role.any()),
-        ]
-        ).then(() => { console.log("created")
+        ]).then(() => { 
+            database.createDocument(DATABASE_ID, CARD_COLLECTION_ID, ID.unique(), {
+                userId: res.$id,
+            }, [
+                Permission.write(Role.any()),
+            ]).catch((err: any) => console.log(err))
         }).catch((err: any) => console.log(err))
     },
 
-    updatingSocials: async (userSocials: any) => {
+    updatingSocials: async (userId: any, userSocials: any) => {
         return await database.listDocuments(DATABASE_ID, PROFILE_COLLECTION_ID,
         [
-            Query.equal("userId", [UserId]),
+            Query.equal("userId", [userId]),
         ]
         ).then((res) => {
             console.log(res.documents[0].$id)
@@ -131,18 +133,26 @@ export const AccountAPI = {
         }).catch((err: any) => console.log(err))
     },
 
-    fetchingProfile: async () => {
+    fetchingProfile: async (userId: any) => {
         return await database.listDocuments(DATABASE_ID, PROFILE_COLLECTION_ID,
             [
-                Query.equal("userId", [UserId]),
+                Query.equal("userId", [userId]),
             ]
         )
     },
 
-    updatingProfile: async(cardInfo: any) => {
+    fetchingCards: async (userId: any) => {
+        return await database.listDocuments(DATABASE_ID, CARD_COLLECTION_ID, 
+            [
+                Query.equal("userId", [userId])
+            ]
+        )
+    },
+
+    updatingProfile: async(userId: any, cardInfo: any) => {
         return await database.listDocuments(DATABASE_ID, PROFILE_COLLECTION_ID,
             [
-                Query.equal("userId", [UserId]),
+                Query.equal("userId", [userId]),
             ]
         ).then((res: any) => {
             database.updateDocument(DATABASE_ID, PROFILE_COLLECTION_ID, res.documents[0].$id, {
@@ -177,7 +187,7 @@ export const AccountAPI = {
         return avatars.getInitials(userName).href
     },
 
-    userQRCode: async() => {
-        return avatars.getQR(`${APP_HOSTNAME}/card/${UserId}`, 600,3).href;
+    userQRCode: async(userId: any) => {
+        return avatars.getQR(`${APP_HOSTNAME}/card/${userId}`, 600,3).href;
     }
 }

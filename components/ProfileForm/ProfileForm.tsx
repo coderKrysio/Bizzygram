@@ -3,7 +3,7 @@ import CardInfo from "./CardInfo"
 import SocialsInfo from "./SocialInfo"
 import Image from "next/image";
 
-const ProfileForm = () => {
+const ProfileForm = ({user}: any) => {
     const [openSocials, setOpenSocials] = useState(false);
 
     return (
@@ -33,8 +33,8 @@ const ProfileForm = () => {
             <div
             className="flex h-[500px] items-start justify-center p-1 overflow-scroll"
             >
-                {!openSocials ? <CardInfo setOpenSocials={setOpenSocials} /> :
-                <SocialsInfo />}
+                {!openSocials ? <CardInfo user={user} setOpenSocials={setOpenSocials} /> :
+                <SocialsInfo {...{user}} />}
             </div>
         </div>
     )

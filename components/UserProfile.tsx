@@ -11,7 +11,7 @@ import LowerNavigation from './Navigation/LowerNavigation'
 import Setting from './Settings/Setting'
 import ProfileModal from './Navigation/ProfileModal'
 import ScannerModal from './Navigation/ScannerModal'
-import { AccountAPI } from '@/lib/accountapi'
+import { AccountAPI, Client_Account } from '@/lib/accountapi'
 import { useRouter } from 'next/navigation'
 
 const UserProfile = () => {
@@ -33,6 +33,7 @@ const UserProfile = () => {
         name: "",
         email: "",
         type: "",
+        userId: "",
     })
 
     const [cardInfo, setCardInfo] = useState({
@@ -43,41 +44,51 @@ const UserProfile = () => {
         socials: [],
     })
 
-    useEffect(()=>{
-        AccountAPI.getUserInformation()
-        .then((res: any) => {
-            if(res.total==0) router.push('/signup')
-            const data = res.documents[0]
-            setUserDetails((prev: any) => ({
-                ...prev,
-                name: data.name,
-                email: data.email,
-                type: data.type,
-            }))
-            AccountAPI.userInitials(data.name).then((res: any) => {
-                setProfilePhoto(res)
-            })
-        })
-
-        AccountAPI.fetchingProfile()
-        .then((res: any) => {
-            if(res.total != 0) {
+    const getSession = () => {
+        AccountAPI.getAccount()
+        .then((user: any) => {
+            console.log(user,"from get account")
+            AccountAPI.getUserInformation(user.$id)
+            .then((res: any) => {
+                if(res.total==0) router.push('/signup')
                 const data = res.documents[0]
-                setCardInfo((prev: any) => ({
+                setUserDetails((prev: any) => ({
                     ...prev,
-                    profession: data.profession,
-                    organisation: data.organisation,
-                    firmType: data.firmType,
-                    contactNo: data.contactNo,
-                    socials: data.socials,
+                    name: data.name,
+                    email: data.email,
+                    type: data.type,
+                    userId: data.$id,
                 }))
-            }
-        })
+                AccountAPI.userInitials(data.name).then((res: any) => {
+                    setProfilePhoto(res)
+                })
+            })
 
-        AccountAPI.userQRCode()
-        .then((res: any) => setQRCode(res))
+            AccountAPI.fetchingProfile(user.$id)
+            .then((res: any) => {
+                if(res.total != 0) {
+                    const data = res.documents[0]
+                    setCardInfo((prev: any) => ({
+                        ...prev,
+                        profession: data.profession,
+                        organisation: data.organisation,
+                        firmType: data.firmType,
+                        contactNo: data.contactNo,
+                        socials: data.socials,
+                    }))
+                }
+            })
+
+            AccountAPI.userQRCode(user.$id)
+            .then((res: any) => setQRCode(res))
+        }).catch((err: any) => console.log(err))
+    }
+
+    useEffect(()=>{
+        getSession()
+        console.log(userDetails, "user details")
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+    },[Client_Account])
 
     useEffect(() => {
         if(showUpdate) {
@@ -100,7 +111,7 @@ const UserProfile = () => {
                 setProfileModal,
             }}/>
 
-            {scannerModal && <ScannerModal {...{
+            {/* {scannerModal && <ScannerModal {...{
                 setScannerModal
             }}/>}
 
@@ -194,7 +205,7 @@ const UserProfile = () => {
                 setShowQR,
                 setShowUpdate,
                 setProfileModal,
-            }}/>
+            }}/> */}
         </div>
     )
 }

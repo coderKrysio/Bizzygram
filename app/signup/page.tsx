@@ -2,7 +2,7 @@
 import Navbar from '@/components/Navigation/Navbar';
 import SignUpMain from '@/components/SignUp-In/SignUpMain';
 import UserType from '@/components/SignUp-In/UserType';
-import { AccountAPI, Client_Account, UserId } from '@/lib/accountapi';
+import { AccountAPI, Client_Account } from '@/lib/accountapi';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
@@ -42,8 +42,8 @@ export default function SignUp() {
         .then((res: any) => {
             handleSigning(res)
             localStorage.setItem("userId",res.$id)
-        }).catch((err: any) => console.log(err))    
-        router.push(`/profile/${UserId}`)    
+            router.push(`/profile/${res.$id}`)   
+        }).catch((err: any) => console.log(err))     
     }
 
     const handleCreateDocument = (res: any) => {
