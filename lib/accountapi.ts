@@ -191,6 +191,20 @@ export const AccountAPI = {
         )
     },
 
+    addingCard: async (userId: any, cardId: any) => {
+        return await database.listDocuments(DATABASE_ID, CARD_COLLECTION_ID,
+            [
+                Query.equal("userId", [userId])
+            ]
+        ).then((res: any) => {
+            database.updateDocument(DATABASE_ID, CARD_COLLECTION_ID, res.documents[0].$id,{
+                card1: cardId,
+            })
+        .then(() => { console.log("updated cards")
+            }).catch((err: any) => console.log(err))
+        }).catch((err: any) => console.log(err))
+    },
+
     userInitials: async(userName: any) => {
         return avatars.getInitials(userName).href
     },

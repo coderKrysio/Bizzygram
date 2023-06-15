@@ -22,6 +22,14 @@ export default function Card({params}: any) {
         contactNo: "",
         socials: [],
     })
+
+    const handleAddBtn = () => {
+        AccountAPI.getAccount()
+        .then((res: any) => {
+            AccountAPI.addingCard(res.$id, params.id)
+            router.push(`/profile/${res.$id}`)
+        })
+    }
     
     useEffect(()=>{
         AccountAPI.getCardUser(params.id)
@@ -77,6 +85,7 @@ export default function Card({params}: any) {
 
                 <button
                 className='w-fit border-2 font-semibold border-[#17242a] rounded-md px-9 py-3 m-auto mb-3 mt-5 hover:bg-[#ffd803] hover:border-transparent'
+                onClick={handleAddBtn}
                 >Add</button>
             </div>
         </div>
