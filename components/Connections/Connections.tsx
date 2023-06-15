@@ -17,18 +17,20 @@ const Connections = ({userDetails}: any) => {
     useEffect(() => {
         AccountAPI.fetchingCards(userDetails.userId)
         .then((res: any) => {
-            const data = res.documents[0]
-            setCardDetails((prev: any) => ({
-                ...prev,
-                userId: data.userId,
-                card1: data.card1,
-                card2: data.card2,
-                card3: data.card3,
-                card4: data.card4,
-                card5: data.card5,
-                card6: data.card6,
-            }))
-            if(data.card1 != "") setConnections(1)
+            if(res.total == 1){
+                const data = res.documents[0]
+                setCardDetails((prev: any) => ({
+                    ...prev,
+                    userId: data.userId,
+                    card1: data.card1,
+                    card2: data.card2,
+                    card3: data.card3,
+                    card4: data.card4,
+                    card5: data.card5,
+                    card6: data.card6,
+                }))
+                if(data.card1 != "") setConnections(1)
+            }            
         })
     },[userDetails.userId])
 

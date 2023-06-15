@@ -133,6 +133,14 @@ export const AccountAPI = {
         }).catch((err: any) => console.log(err))
     },
 
+    getUserCardDocument: async(userId: any) => {
+        return await database.listDocuments(DATABASE_ID, USER_COLLECTION_ID,
+            [
+                Query.equal("userId", [userId]),
+            ]
+        )
+    },
+
     fetchingProfile: async (userId: any) => {
         return await database.listDocuments(DATABASE_ID, PROFILE_COLLECTION_ID,
             [
