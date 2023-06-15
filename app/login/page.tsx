@@ -47,6 +47,7 @@ export default function Login() {
 
     useEffect(() => {
         if(details.userId != "") router.push(`/profile/${details.userId}`)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[details.userId])
 
     useEffect(() => {
