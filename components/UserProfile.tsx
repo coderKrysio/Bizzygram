@@ -47,7 +47,6 @@ const UserProfile = () => {
     const getSession = () => {
         AccountAPI.getAccount()
         .then((user: any) => {
-            console.log(user,"from get account")
             AccountAPI.getUserInformation(user.$id)
             .then((res: any) => {
                 if(res.total==0) router.push('/signup')
@@ -57,7 +56,7 @@ const UserProfile = () => {
                     name: data.name,
                     email: data.email,
                     type: data.type,
-                    userId: data.$id,
+                    userId: data.userId,
                 }))
                 AccountAPI.userInitials(data.name).then((res: any) => {
                     setProfilePhoto(res)
@@ -98,10 +97,6 @@ const UserProfile = () => {
             }}/>
         }
     },[showUpdate])
-
-    useEffect(() => {
-        console.log(userDetails, "user details")
-    },[userDetails])
 
     return (
         <div 
@@ -163,7 +158,7 @@ const UserProfile = () => {
                         setCardInfo,
                     }}/>}
 
-                    {showConnections && <Connections />}
+                    {showConnections && <Connections {...{userDetails}} />}
 
                     {showUserCard && <UserCard {...{
                         setShowQR,
