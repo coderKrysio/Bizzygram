@@ -1,10 +1,11 @@
 import { AccountAPI } from "@/lib/accountapi"
 import Template1 from "@/lib/templates/template1"
+import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
 const ConnectionCard = ({cardId}: any) => {
-    console.log(cardId)
-    const themeStyle = "absolute -top-[44px] -left-[73px] w-[475px] h-[282px] bg-gradient-to-r from-[#7F7FD5] to-[#91EAE4] rounded-xl scale-[0.7] z-20 hover:cursor-pointer";
+    const router = useRouter()
+    const themeStyle = "absolute -top-[44px] -left-[73px] w-[475px] h-[282px] bg-gradient-to-r from-[#7F7FD5] to-[#91EAE4] rounded-xl scale-[0.7] z-20";
     const [userDetails, setUserDetails] = useState({
         name: "",
         email: "",
@@ -19,9 +20,6 @@ const ConnectionCard = ({cardId}: any) => {
         contactNo: "",
         socials: [],
     })
-
-    const getDetails = () => {
-    }
 
     useEffect(() => {
         AccountAPI.getUserCardDocument(cardId).then((res: any) => {
@@ -60,7 +58,9 @@ const ConnectionCard = ({cardId}: any) => {
       <div
       className="h-[225px] w-[375px] m-auto flex flex-col justify-center items-center max-[470px]:scale-[0.87] max-[400px]:scale-[0.85] max-[470px]:m-0"
       >
-          <div className="relative w-[333px] h-[198px] rounded-lg">
+          <div 
+          onClick={() => router.push(`/card/${cardId}`)}
+          className="relative w-[333px] h-[198px] rounded-lg hover:cursor-pointer">
               {userDetails.name != "" && <div
               className={themeStyle}
               ><Template1 {...{

@@ -45,6 +45,8 @@ const Profile = () => {
         } 
     },[profileUser])
 
+    console.log(profileUser)
+
     return (
         <>            
             {profileDetails.userId != "" &&         
@@ -53,7 +55,7 @@ const Profile = () => {
                     <div className='flex w-screen h-screen overflow-hidden'>
                         <div className='flex flex-col h-screen w-full pt-[60px]'>
                             <Navbar profileIcon={profileIcon} />
-                            <ProfileForm />
+                            <ProfileForm user={user} setProfileUser={setProfileUser} />
                         </div>
                     </div>
                     : 

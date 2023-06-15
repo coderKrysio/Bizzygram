@@ -25,11 +25,11 @@ const LandingPage = () => {
             /></div>
 
             <div className='absolute bottom-0 m-[10px] mb-[70px] flex flex-col gap-[25px] justify-center items-center max-[550px]:mb-[100px]'>
-                <h1 className="text-6xl font-semibold text-center">
+                <h1 className="text-9xl font-semibold text-center">
                     Bizzygram
                 </h1>
 
-                <h3 className="text-2xl text-center">
+                <h3 className="text-3xl text-center">
                     Connect with a Tap,
                     <br />
                     Your Network in One Snap!
