@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useEffect, useState } from "react"
 
 const UserType = ({details, setDetails, setUserType, setShowUserType}: any) => {
@@ -31,14 +32,19 @@ const UserType = ({details, setDetails, setUserType, setShowUserType}: any) => {
         if(typeValue == "Individual") { 
             setAddBorder2(false)
             setAddBorder1(prev => !prev)
-        } else if (typeValue == "Organisation or Local Business") {
-            setAddBorder1(false)
-            setAddBorder2(prev => !prev)
-        }
-        setDetails((prev: any) => ({
+            setDetails((prev: any) => ({
             ...prev,
             type: typeValue,
         }))
+        } else if (typeValue == "Organisation or Local Business") {
+            setAddBorder1(false)
+            setAddBorder2(prev => !prev)
+            setDetails((prev: any) => ({
+            ...prev,
+            type: typeValue,
+        }))
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [typeValue])
 
     return (
@@ -57,10 +63,12 @@ const UserType = ({details, setDetails, setUserType, setShowUserType}: any) => {
                     className="flex flex-col justify-center items-center gap-3 w-full h-full p-3"
                     onClick={() => setTypeValue("Individual")}
                     >
-                        <img 
+                        <Image 
                         src="https://res.cloudinary.com/db7nrltsv/image/upload/v1685813832/user_uicuhb.png" 
                         alt="Individual"
-                        width={"50px"} />
+                        width={50}
+                        height={50}
+                        />
                         <span
                         className="text-center text-xl font-semibold"
                         >Individual</span>
@@ -75,10 +83,12 @@ const UserType = ({details, setDetails, setUserType, setShowUserType}: any) => {
                     className="flex flex-col justify-center items-center gap-3 w-full h-full p-3"
                     onClick={() => setTypeValue("Organisation or Local Business")}
                     >
-                        <img 
+                        <Image 
                         src="https://res.cloudinary.com/db7nrltsv/image/upload/v1685813846/multiple-users-silhouette_y1qxao.png" 
                         alt="Organisation or Local Business"
-                        width={"50px"} />
+                        width={50} 
+                        height={50}
+                        />
                         <span
                         className="text-center text-xl font-semibold"
                         >Organisation or Local Business</span>

@@ -1,7 +1,7 @@
-import { AccountAPI, TypeValue } from '@/lib/accountapi'
+import { AccountAPI } from '@/lib/accountapi'
 import { useState } from 'react'
 
-const CardInfo = ({setOpenSocials}: any) => {
+const CardInfo = ({setOpenSocials, user}: any) => {
     const inputStyle = "rounded-md border border-slate-300 py-1 px-3 text-lg mb-2 bg-[#bae8e8] text-[#272343] font-medium focus:outline-none focus:ring-[#272343] focus:ring-2 max-[550px]:mb-[20px]";
     const [profileDetails, setProfileDetails] = useState({
         contactNo: "",
@@ -28,7 +28,7 @@ const CardInfo = ({setOpenSocials}: any) => {
             <div 
             className='grid grid-cols-[150px_minmax(150px,_300px)] items-center gap-[15px] max-[550px]:grid-cols-1 max-[550px]:gap-[5px]'
             >
-                {TypeValue == "Individual" ? <>
+                {user.type == "Individual" ? <>
                     <p
                     className='text-xl font-medium'
                     >Profession</p>

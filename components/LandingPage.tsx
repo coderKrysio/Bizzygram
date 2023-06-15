@@ -1,4 +1,5 @@
 import { Montserrat } from 'next/font/google'
+import Image from 'next/image';
 import { useRouter } from 'next/navigation'
 
 const montserrat = Montserrat({ 
@@ -15,10 +16,12 @@ const LandingPage = () => {
         >
             <div
             className='absolute top-0 left-0 w-screen h-screen flex justify-center items-start bg-contain overflow-hidden'
-            ><img 
+            ><Image 
                 src='/landingpage.png'
                 className='max-[550px]:scale-[3] max-[550px]:translate-y-[166px] max-[800px]:scale-[1.5] max-[800px]:translate-y-[92px]'
                 alt='cards'
+                width={2160}
+                height={1000}
             /></div>
 
             <div className='absolute bottom-0 m-[10px] mb-[70px] flex flex-col gap-[25px] justify-center items-center max-[550px]:mb-[100px]'>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { QrReader } from "react-qr-reader";
 
@@ -18,9 +19,10 @@ const ScannerModal = ({setScannerModal}: any) => {
                 <button
                 className="absolute right-0 top-0 m-5"
                 onClick={() => setScannerModal(false)}
-                ><img
+                ><Image
                     src="https://res.cloudinary.com/db7nrltsv/image/upload/v1686137191/close_uq5hed.png"
-                    width={"22px"}
+                    width={22}
+                    height={22}
                     alt="Close"
                 /></button>
 

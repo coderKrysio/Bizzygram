@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const LowerNavigation = ({
     showProfile, 
     setShowProfile, 
@@ -54,13 +56,14 @@ const LowerNavigation = ({
             className={showConnections ? `${btnStyle} font-semibold` : btnStyle}
             onClick={() => updatePanel("Connections")}
             >
-                <img 
+                <Image 
                 className="mb-1"
                 src={showConnections ? 
                     "https://res.cloudinary.com/db7nrltsv/image/upload/v1686057885/link_3_ja7wu9.png" : 
                     "https://res.cloudinary.com/db7nrltsv/image/upload/v1686049321/link_2_d2xsux.png"
                 }
-                width={"25px"}
+                width={25}
+                height={25}
                 alt="Connections"
                 />
                 Connections
@@ -70,13 +73,14 @@ const LowerNavigation = ({
             className={showProfile ? `${btnStyle} font-semibold` : btnStyle}
             onClick={() => updatePanel("Profile")}
             >
-                <img 
+                <Image 
                 className="mb-1 scale-110"
                 src={showProfile ? 
                     "https://res.cloudinary.com/db7nrltsv/image/upload/v1686057882/user_5_dqcsci.png" : 
                     "https://res.cloudinary.com/db7nrltsv/image/upload/v1686047999/user_3_y0ugew.png"
                 }
-                width={"25px"}
+                width={25}
+                height={25}
                 alt="Profile"
                 />
                 Profile
@@ -86,13 +90,14 @@ const LowerNavigation = ({
             className={showUserCard ? `${btnStyle} font-semibold` : btnStyle}
             onClick={() => updatePanel("Card")}
             >
-                <img 
+                <Image 
                 className="mb-1 scale-[1.3]"
                 src={showUserCard ? 
                     "https://res.cloudinary.com/db7nrltsv/image/upload/v1686057883/credit-card_2_bfsabs.png" : 
                     "https://res.cloudinary.com/db7nrltsv/image/upload/v1686048101/credit-card_erbjpe.png"
                 }
-                width={"25px"}
+                width={25}
+                height={25}
                 alt="Card"
                 />
                 Card
@@ -102,13 +107,14 @@ const LowerNavigation = ({
             className={showSetting ? `${btnStyle} font-semibold` : btnStyle}
             onClick={() => updatePanel("Settings")}
             >
-                <img 
+                <Image 
                 className="mb-1 scale-105"
                 src={showSetting ? 
                     "https://res.cloudinary.com/db7nrltsv/image/upload/v1686057881/gear_2_ivskth.png" : 
                     "https://res.cloudinary.com/db7nrltsv/image/upload/v1686048212/gear_dndbea.png"
                 }
-                width={"25px"}
+                width={25}
+                height={25}
                 alt="Settings"
                 />
                 Settings

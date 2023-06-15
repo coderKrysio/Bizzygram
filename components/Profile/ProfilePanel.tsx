@@ -3,6 +3,7 @@ import CardInformation from './CardInformation'
 import SocialInformation from './SocialInformation'
 import ProfilePhoto from './ProfilePhoto'
 import { AccountAPI } from '@/lib/accountapi'
+import Image from 'next/image'
 
 const ProfilePanel = ({
     profilePhoto,
@@ -12,7 +13,7 @@ const ProfilePanel = ({
 }: any) => {
 
     const updateProfile = () => {
-        AccountAPI.updatingProfile(cardInfo)
+        AccountAPI.updatingProfile(userDetails.userId ,cardInfo)
     }
     
     return (
@@ -29,7 +30,7 @@ const ProfilePanel = ({
                 >
                     <ProfilePhoto profilePhoto={profilePhoto} userDetails={userDetails} />
                     <UserInformation userDetails={userDetails} />
-                    <CardInformation cardInfo={cardInfo} setCardInfo={setCardInfo} />
+                    <CardInformation userDetails={userDetails} cardInfo={cardInfo} setCardInfo={setCardInfo} />
                     <SocialInformation cardInfo={cardInfo} />
 
                     <button
@@ -43,9 +44,11 @@ const ProfilePanel = ({
                 >
                     <div
                     className='w-[200px] h-[200px] rounded-[100px] bg-[#fff] overflow-hidden'
-                    ><img 
+                    ><Image 
                         src={profilePhoto}
                         alt='Profile'
+                        width={200}
+                        height={200}
                     /></div>
 
                     <button

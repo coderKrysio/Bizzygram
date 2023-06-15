@@ -1,14 +1,14 @@
 import { AccountAPI } from "@/lib/accountapi"
 import { useRouter } from "next/navigation";
 
-const SocialsInfo = () => {
+const SocialsInfo = ({user}: any) => {
     const router = useRouter()
     const links: any = ["","", "", "", "", "", "", ""]
 
     const inputStyle = "rounded-md border border-slate-300 py-1 px-3 text-lg mb-2 bg-[#bae8e8] text-[#272343] font-medium focus:outline-none focus:ring-[#272343] focus:ring-2 max-[550px]:mb-[20px]";
 
     const handleNextBtn = () => {       
-        AccountAPI.updatingSocials(links)
+        AccountAPI.updatingSocials(user.$id, links)
         router.push('/login')
     }
 

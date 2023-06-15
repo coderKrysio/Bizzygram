@@ -1,8 +1,9 @@
 import { useState } from "react"
 import CardInfo from "./CardInfo"
 import SocialsInfo from "./SocialInfo"
+import Image from "next/image";
 
-const ProfileForm = () => {
+const ProfileForm = ({user}: any) => {
     const [openSocials, setOpenSocials] = useState(false);
 
     return (
@@ -11,9 +12,11 @@ const ProfileForm = () => {
                 {openSocials && <button 
                 className='w-fit ml-0'
                 onClick={() => setOpenSocials(false)}
-                ><img 
+                ><Image 
                     src='https://res.cloudinary.com/db7nrltsv/image/upload/v1686363947/left-arrow_lmf6jf.png' 
-                    width={"25px"} 
+                    alt="Back"
+                    width={25} 
+                    height={25}
                 /></button>}
             </div>
 
@@ -30,8 +33,8 @@ const ProfileForm = () => {
             <div
             className="flex h-[500px] items-start justify-center p-1 overflow-scroll"
             >
-                {!openSocials ? <CardInfo setOpenSocials={setOpenSocials} /> :
-                <SocialsInfo />}
+                {!openSocials ? <CardInfo user={user} setOpenSocials={setOpenSocials} /> :
+                <SocialsInfo {...{user}} />}
             </div>
         </div>
     )

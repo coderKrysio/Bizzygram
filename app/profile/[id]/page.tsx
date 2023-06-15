@@ -2,7 +2,7 @@
 import Navbar from '@/components/Navigation/Navbar';
 import ProfileForm from '@/components/ProfileForm/ProfileForm';
 import UserProfile from '@/components/UserProfile';
-import { AccountAPI, TypeValue, UserId } from '@/lib/accountapi';
+import { AccountAPI } from '@/lib/accountapi';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -24,18 +24,19 @@ const Profile = () => {
                 setProfileDetails((prev: any) => ({
                     ...prev,
                     userId: res.$id,
-                    type: TypeValue,
+                    type: localStorage.getItem("type"),
                 }))
                 setProfileUser(response.total)
             })
             localStorage.setItem("userId", res.$id)
-            AccountAPI.gettingTypeValue()
+            AccountAPI.gettingTypeValue(res.$id)
         })
         .catch((err) => console.log(err));     
     }
 
     useEffect(() => {
         getSession()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
@@ -46,7 +47,7 @@ const Profile = () => {
 
     return (
         <>            
-            {UserId != "" ?         
+            {profileDetails.userId != "" ?         
                 <>
                 {profileUser == 0 ? 
                     <div className='flex w-screen h-screen overflow-hidden'>

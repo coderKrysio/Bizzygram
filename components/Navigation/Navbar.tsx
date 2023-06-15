@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 const Navbar = ({
@@ -25,9 +26,10 @@ const Navbar = ({
             <div
             className='absolute right-0 mr-5 flex gap-[30px] max-[470px]:gap-[20px]'
             >
-            <button><img
+            <button><Image
                 src='https://res.cloudinary.com/db7nrltsv/image/upload/v1686135910/barcode-scanner_jhr8js.png'
-                width={"30px"}
+                width={30}
+                height={30}
                 onClick={() => setScannerModal((prev: any) => !prev)}
                 alt='Scanner'
             /></button>
@@ -35,9 +37,11 @@ const Navbar = ({
             {profileIcon && <div
             className='w-[46px] h-[46px] bg-[#fff] rounded-[23px] border-[3px] border-[#272323] hover:cursor-pointer overflow-hidden'
             onClick={() => setProfileModal((prev: any) => !prev)}
-            ><img 
+            ><Image 
                 src={profilePhoto}
                 alt='Profile'
+                width={46}
+                height={46}
             /></div>}
             </div>
             
