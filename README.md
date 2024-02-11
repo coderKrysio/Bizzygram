@@ -2,6 +2,10 @@
 
 ![localhost_3000_ (4)](https://github.com/coderKrysio/Bizzygram/assets/91840205/cebaec7c-2669-4454-b2be-6db62045ba77)
 
+## Demo Link
+Watch a demo of Bizzygram here: https://youtu.be/8rxGGycyOcc
+
+---
 ## Description
 Bizzygram is a groundbreaking digital networking solution designed to streamline and simplify the way professionals connect and exchange information. With Bizzygram, the days of searching through stacks of physical business cards are over. This innovative platform harnesses the power of QR codes to revolutionize the networking process.
 
@@ -63,10 +67,6 @@ Premium Subscription: A premium subscription plan will be introduced, offering a
 
 ---
 
-## Demo Link
-Watch a demo of Bizzygram here: https://youtu.be/8rxGGycyOcc
-
----
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
