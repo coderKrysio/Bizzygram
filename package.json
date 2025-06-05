@@ -13,7 +13,7 @@
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
     "appwrite": "^11.0.0",
-    "appwrite-cli": "^2.0.2",
+    "appwrite-cli": "^7.0.0",
     "autoprefixer": "10.4.14",
     "encoding": "^0.1.13",
     "eslint": "8.41.0",
@@ -30,7 +30,7 @@
   "devDependencies": {
     "@types/node": "20.2.5",
     "@types/react": "18.2.9",
-    "appwrite-cli": "^2.0.2",
+    "appwrite-cli": "^7.0.0",
     "prettier": "2.8.8"
   },
   "browser": {
